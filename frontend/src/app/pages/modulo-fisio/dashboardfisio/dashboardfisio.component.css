@@ -1,0 +1,15 @@
+/* BOTONES */
+
+button {
+    border: 0;
+    outline: 0 none !important;
+    background: none;
+}
+
+.botones {
+    text-align: center;
+}
+
+.planmensual {
+    background-color: rgb(212, 190, 141);
+}

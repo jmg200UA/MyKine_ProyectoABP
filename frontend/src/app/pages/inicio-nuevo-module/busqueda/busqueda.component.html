@@ -1,0 +1,89 @@
+<!--NAVBAR -->
+<div class="container-fluid contenedor">
+    <div class="row primercontenedor">
+        <div class="col-md-3 input-wrapper">
+            <app-buscar-localizacion class="busqueda"></app-buscar-localizacion>
+            <i class="fa fa-map-marker input-icon"></i>
+        </div>
+        <div class="col-md-3 busqueda input-wrapper">
+            <input #txtBuscar type="text" class="search" (keyup)="cargarUsuariosPremiumPaginados(txtBuscar.value)" id="fname" placeholder="Nombre del fisio..." autocomplete="off">
+            <!-- <span class="input-group-text bg-dark text-white tamano" id="basic-addon5"> -->
+            <i class="fa fa-user input-icon"></i>
+            <!-- </span> -->
+        </div>
+
+        <div class="col-md-6 filtros">
+            <button id="cualquiera" (click)="filtroboton('general')" type="button" class="btn btn-light general">Cualquiera</button>
+            <button id="neurologia" (click)="filtroboton('neurologia')" type="button" class="btn btn-light neurologia">Neurólogos</button>
+            <button id="pediatria" (click)="filtroboton('pediatria')" type="button" class="btn btn-light pediatria">Pediatras</button>
+            <button id="deportiva" (click)="filtroboton('deportiva')" type="button" class="btn btn-light deportiva">Deportivos</button>
+            <button id="geriatria" (click)="filtroboton('geriatria')" type="button" class="btn btn-light geriatria">Geriatras</button>
+        </div>
+
+    </div>
+    <hr id="hrdivision">
+
+    <!-- SEGUNDA FILA -->
+    <div class="row">
+
+        <!-- PRIMERA COLUMNA FISIOS -->
+
+        <div class="col-md-5">
+
+            <div class="row d-flex justify-content-center pt-3 pb-3 resultadosObtenidos">
+                <b>{{totalusuarios}}</b>&nbsp;resultados encontrados
+            </div>
+            <hr id="divisionespecial">
+
+            <div *ngFor="let usuario of listaPremiums;let i = index">
+                <div class="row filafisio micursor animate__animated animate__fadeIn">
+                    <div class="col-md-7">
+                        <div class="foto" (click)="fisio(usuario.uid)">
+                            <img [src]="crearImagenUrl(listaPremiums[i].imagen)" alt="user" />
+                        </div>
+                    </div>
+                    <div class="col-md-5 zonatexto">
+                        <div class="row">
+                            <div class="col">
+                                <div class="textocambiar">{{listaPremiums[i].nombre_apellidos | titlecase}}</div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col">
+                                <div>{{listaPremiums[i].especialidad | titlecase}}</div>
+                            </div>
+                            <div class="col d-flex justify-content-start">
+
+                                <div class="text-right">
+                                    {{listaPremiums[i].valoracion}}/10
+                                    <i class="fa fa-star estrella"></i>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+            </div>
+
+            <div class="mt-2 mr-2 float-right">
+                <app-pagination (cambiarPagina)="cambiarPagina( $event ) " [texto]="true " [totalRegistros]="totalusuarios" [registroActual]="posicionactual+1 " [registrosPorPagina]="registrosporpagina "></app-pagination>
+            </div>
+
+        </div>
+        <!-- FIN, PRIMERA COLUMNA FISIOS -->
+
+        <!-- SEGUNDA COLUMNA MAPA -->
+        <div class="col-md-7 segundacolumna mapa">
+
+            <div (scroll)="onscroll()" [ngClass]="navbarfixed?'fixed':'nofixed'">
+
+                <app-mapa [listaUsuarios]="listaPremiums" [ciudad]="ciudadPasada"></app-mapa>
+
+            </div>
+
+        </div>
+        <!-- FIN, SEGUNDA COLUMNA MAPA -->
+    </div>
+</div>

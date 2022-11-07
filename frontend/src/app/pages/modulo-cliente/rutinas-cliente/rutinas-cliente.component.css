@@ -1,0 +1,234 @@
+.minicol {
+    padding: 1em;
+    margin: .3em;
+    margin-top: 1em;
+    background-color: #e3e5e9;
+    border-radius: 4px;
+}
+
+
+/* Botones */
+
+button {
+    border: 0;
+    outline: 0 none !important;
+    background: none;
+}
+
+.botones {
+    text-align: center;
+}
+
+tr {
+    margin-top: 2em;
+}
+
+tbody {
+    text-align: center;
+}
+
+@media (min-width: 650px) {
+    .segundafila {
+        padding-left: 3em;
+        padding-right: 3em;
+    }
+}
+
+.el-card-content1 {
+    text-align: center;
+}
+
+.el-card-item1 {
+    position: relative;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+.select {
+    position: relative;
+    border: 1px solid #ccc;
+    width: 120px;
+    overflow: hidden;
+    background-color: #fff;
+    border-radius: 4px;
+}
+
+.select:before {
+    content: '';
+    position: absolute;
+    right: 5px;
+    top: 7px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 7px 5px 0 5px;
+    border-color: #000000 transparent transparent transparent;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.select select {
+    padding: 5px 8px;
+    width: 130%;
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+    background-image: none;
+    appearance: none;
+}
+
+label {
+    display: block;
+    font: 1rem 'Fira Sans', sans-serif;
+    margin: .4rem 0;
+}
+
+.date {
+    border-radius: 5px;
+    margin: .4rem 0;
+}
+
+
+/* MODAL */
+
+body {
+    background-color: rgb(58, 177, 2);
+    font-family: Poppins
+}
+
+@media(width:1024px) {
+    .modal-dialog {
+        max-width: 70%
+    }
+}
+
+.modal-content {
+    border-radius: 0.7rem
+}
+
+.modal-header img {
+    width: 100px
+}
+
+.modal-title {
+    margin-left: auto;
+    margin-right: auto
+}
+
+.modal-footer {
+    border-top: none
+}
+
+button:active {
+    outline: none
+}
+
+button:focus {
+    outline: none
+}
+
+.modal-body {
+    text-align: center
+}
+
+.cerrar {
+    display: inline-block;
+    line-height: 42px;
+    padding: 0 33px;
+    font-family: Poppins;
+    cursor: pointer;
+    color: #fff;
+    -webkit-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+    font-size: 18px;
+    width: 100%
+}
+
+.btn--pill {
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 30px;
+    border: 2px solid
+}
+
+.btn--signin {
+    background: rgba(0, 136, 169, 1);
+    font-size: 15px;
+    margin-bottom: 3vh
+}
+
+.modal-backdrop {
+    z-index: -1;
+}
+
+.card {
+    /* background-color: #f0f0f0cc; */
+    background-color: #e3e8e99f;
+    border-radius: .5em;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.20);
+}
+
+.colorOscuro {
+    background-color: #f3f3f3;
+}
+
+.barBusqueda {
+    appearance: none;
+    width: 100%;
+    height: 2.5em;
+    border: 2px solid #333333;
+    border-radius: .5em;
+    /* background-color: #333333;
+    color: white; */
+    font-size: large;
+    padding-left: 1em;
+}
+
+
+/* .filtros {
+    padding: 16px;
+} */
+
+
+/* DESPLEGABLE ORDENAR*/
+
+
+/* .filtrohist {
+    margin-top: 1em;
+} */
+
+.box select {
+    border-radius: 10px;
+    background-color: #343a40;
+    color: white;
+    border: none;
+    outline: none;
+}
+
+.box::before {
+    text-align: center;
+    pointer-events: none;
+}
+
+.box:hover::before {
+    color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.botonfecha {
+    border-radius: 10px;
+    background-color: #343a40;
+    color: white;
+    border: none;
+    outline: none;
+}
+
+
+/* Para redondeo rutinas totales */
+
+.cartaround {
+    border-radius: 10px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.20);
+}

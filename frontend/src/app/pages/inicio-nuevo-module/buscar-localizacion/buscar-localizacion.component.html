@@ -1,0 +1,17 @@
+<input type="text" class="search" placeholder="Buscar lugar..." #txtQuery (keyup)="onQueryChanged(txtQuery.value)">
+
+
+<!-- RESULTADOS -->
+<div *ngIf="isLoadingPlaces" class="alert alert-primary mt-2 text-center">
+    <h6>Cargando</h6>
+    <span>Espere por favor...</span>
+</div>
+
+<ul class="list-group mt-2 porencima" *ngIf="places.length > 0">
+
+    <li *ngFor="let place of places" class="list-group-item list-group-item-action pointer" [class.active]="place.id === selectedId" (click)="flyTo( place )">
+        <h6>{{ place.text_es }}</h6>
+        <p>{{ place.place_name }}</p>
+    </li>
+</ul>
+<!-- FIN RESULTADOS -->

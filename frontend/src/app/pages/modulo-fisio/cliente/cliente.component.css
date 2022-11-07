@@ -1,0 +1,76 @@
+/* BUSCADOR */
+
+.buscador {
+    height: 45px;
+    border-radius: .5em;
+}
+
+.buscador>div>span {
+    border-radius: 0 .5em .5em 0;
+    background-color: #02617e;
+    color: white;
+}
+
+.buscador>input {
+    font-size: 18px;
+}
+
+
+/* PERSONALIZAR TABLA */
+
+thead th {
+    background-color: #02617e;
+    color: aliceblue;
+}
+
+.nuevo {
+    background-color: #02617e;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.20);
+    border-radius: 5px;
+}
+
+.perso-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    border-radius: 10px;
+    /* font-size: 0.9em;
+font-family: sans-serif; */
+    /* min-width: 400px; */
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.20);
+}
+
+
+/* BOTONES */
+
+button {
+    border: 0;
+    outline: 0 none !important;
+    background: none;
+}
+
+.botones {
+    text-align: center;
+}
+
+
+/* rutinas */
+
+#divrutinas {
+    margin-top: 2em;
+    margin-bottom: 1em;
+}
+
+h3 {
+    margin-left: 0.5em;
+    margin-bottom: 0.4em;
+}
+
+#divuser {
+    margin-top: 2em;
+    margin-bottom: 1em;
+}
+
+
+/* #infocliente {
+    margin-top: 1.4em;
+} */

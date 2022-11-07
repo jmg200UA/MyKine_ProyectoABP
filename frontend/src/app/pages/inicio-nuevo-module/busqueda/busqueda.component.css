@@ -1,0 +1,144 @@
+.contenedor {
+    padding-left: 1em;
+    /* padding-right: 1em; */
+}
+
+.foto>img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    max-height: 200px;
+    /* height: 200px; */
+    border-radius: .8em;
+}
+
+@media (max-width: 650px) {
+    .zonatexto {
+        margin-left: 1.5em;
+    }
+    .filtros {
+        display: none;
+    }
+    .mapa {
+        display: none;
+    }
+    .foto>img {
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+        max-height: 250px;
+        /* height: 200px; */
+        /* border-radius: .8em; */
+    }
+}
+
+.filafisio {
+    margin-bottom: 1em;
+    /* margin-top: 1em; */
+}
+
+.textocambiar {
+    font-size: large;
+    font-weight: 600;
+}
+
+.estrella {
+    text-align: center;
+    font-size: 15px;
+    color: rgb(179, 192, 65);
+}
+
+.fixed {
+    position: fixed;
+    width: 100%;
+    transition: 0.2s linear;
+    top: 20px;
+    /* z-index: -5; */
+}
+
+.nofixed {
+    position: static;
+    transition: 0.2s linear;
+    /* top: -20px; */
+}
+
+#hrdivision {
+    margin: 0;
+    width: 100%;
+}
+
+.primercontenedor {
+    padding: .8em;
+    background-color: #dfe7ff4b;
+}
+
+
+/* Segunda barra busqueda */
+
+.search {
+    width: 100%;
+    border: 2px solid rgb(83, 83, 83);
+    border-radius: .5em;
+    padding: 10px 10px 10px 35px;
+}
+
+.filtros>button {
+    border-radius: .5em;
+    padding: 10px;
+    margin-left: .7em;
+    width: 7em;
+}
+
+.general {
+    border: 2.5px solid #a51b40;
+}
+
+.pediatria {
+    border: 2.5px solid #cc8427;
+}
+
+.neurologia {
+    border: 2.5px solid #a626a8;
+}
+
+.deportiva {
+    border: 2.5px solid #017518;
+}
+
+.geriatria {
+    border: 2.5px solid #F1c510;
+}
+
+.zonatexto {
+    padding-top: 20px;
+    padding-left: 0;
+}
+
+.resultadosObtenidos {
+    background-color: #f5f5f5;
+}
+
+#divisionespecial {
+    margin-top: 0;
+}
+
+
+/* .segundacolumna{
+  margin-right: 0px;
+} */
+
+.input-wrapper {
+    position: relative;
+    /* width: 271px; */
+}
+
+.input-icon {
+    color: #474747;
+    font-size: 20px;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+}

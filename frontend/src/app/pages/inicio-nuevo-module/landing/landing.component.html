@@ -1,0 +1,287 @@
+<header>
+    <div class="container-fluid primercontenedor contenedorPrincipal">
+        <div class="row">
+
+            <!-- Primera columna -->
+            <div class="colbuscador col">
+                <h1>Encuentra el fisio que más se adapte a tus necesidades</h1>
+                <div class="busqueda">
+                    <form [formGroup]="busquedaForm" (ngSubmit)="busqueda()">
+
+                        <div class="form-group alicante">
+
+                            <label>Ciudad</label>
+                            <!-- Localizacion -->
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text bg-dark text-white tamano" id="basic-addon5"><i class="fa fa-map-marker"></i></span>
+                                </div>
+                                <input #txtQuery (keyup)="onQueryChanged(txtQuery.value)" autocomplete="off" class="tamano form-control" type="text" name="localizacion" formControlName="localizacion" placeholder="Alicante..." value={{nombrePlace}}>
+
+                                <!-- RESULTADOS -->
+                                <div *ngIf="isLoadingPlaces" class="alert alert-primary mt-2 text-center">
+                                    <h6>Cargando</h6>
+                                    <span>Espere por favor...</span>
+                                </div>
+                                <ul class="list-group mt-2 porencima" *ngIf="places.length > 0">
+                                    <li *ngFor="let place of places" class="list-group-item list-group-item-action micursor" [class.active]="place.id === selectedId" (click)="esteLugar( place )">
+                                        <h6>{{ place.text_es }}</h6>
+                                        <p>{{ place.place_name }}</p>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label> Especialidad</label><br>
+
+                            <!-- Segunda columna, selector de fisio -->
+                            <div class="row justify-content-center selector">
+                                <div class="col">
+                                    <div class="select">
+                                        <select id="cars" class="form-control" (change)="select()">
+                                            <option>Cualquiera</option>
+                                            <option>Pediatria</option>
+                                            <option>Neurologia</option>
+                                            <option>Geriatria</option>
+                                            <option>Deportiva</option>
+                                          </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Tercera columna, selector de fisio -->
+                            <div class="row justify-content-center">
+                                <div class="col">
+                                    <div>
+                                        <button (click)="busqueda()" class="botonbuscar">BÚSQUEDA</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+
+            <!-- Segunda columna -->
+            <div class="col">
+                <div class="d-flex justify-content-start">
+                    <img src="../../assets/images/fisioicon.png" alt="user" class="imgland" />
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</header>
+
+
+<div class="contenedorPrincipal">
+
+    <!-- CONTAINER 4 FISIOS MAS DESTACADOS -->
+    <div class="cont">
+        <h3 class="page-title">Nuestras recomendaciones premium</h3>
+
+        <div class="row el-element-overlay">
+            <div *ngFor="let usuario of listaPremiumsRecomendados;let i = index;" class="col-lg-4 col-md-6">
+                <div class="card">
+                    <div class="el-card-item">
+                        <div class="el-card-avatar el-overlay-1">
+                            <img class="micursor" (click)="fisio(usuario.uid)" [src]="crearImagenUrl(listaPremiumsRecomendados[i].imagen)" alt="user" />
+                        </div>
+                        <div class="el-card-content">
+                            <h4 class="m-b-0">{{listaPremiumsRecomendados[i].nombre_apellidos}}</h4>
+                            <span class="text-muted">{{listaPremiumsRecomendados[i].especialidad}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FIN DEL CONTAINER 3 FISIOS DESTACADOS -->
+
+    <!-- DIV DE LAS CIUDADES -->
+    <div class="cont">
+        <h3 class="page-title">Fisios más destacados por ciudad</h3>
+        <div class="containerN">
+
+            <div class="card micursor" (click)="busqueda()">
+                <div class="face face1">
+                    <div class="content">
+                        <span class="stars"></span>
+                        <h2 class="java">Alicante</h2>
+                        <p class="java">La mejor ciudad de España. Encuentra los mejores fisios de este maravilloso país entre playas y un radiante sol.</p>
+                    </div>
+                </div>
+                <div class="face face2">
+                    <h2>Alicante</h2>
+                </div>
+            </div>
+
+            <div class="card micursor" (click)="busquedaCiudades('-3.703583,40.416705')">
+                <div class="face face1">
+                    <div class="content">
+                        <span class="stars"></span>
+                        <h2 class="python">Madrid</h2>
+                        <p class="python">La capital de España y de la fisioterapia. Ven en busca de un fisio y date una vuelta por el museo del Padro.</p>
+                    </div>
+                </div>
+                <div class="face face2">
+                    <h2>Madrid</h2>
+                </div>
+            </div>
+
+            <div class="card micursor" (click)="busquedaCiudades('2.177432,41.382894')">
+                <div class="face face1">
+                    <div class="content">
+                        <span class="stars"></span>
+                        <h2 class="cSharp">Barcelona</h2>
+                        <p class="cSharp">La sagrada familia no se podría construir sin fisioterapeutas que curen a todos esos obreros y lo sabes.</p>
+                    </div>
+                </div>
+                <div class="face face2">
+                    <h2>Barcelona</h2>
+                </div>
+            </div>
+
+            <div class="card micursor" (click)="busquedaCiudades('-0.376335,39.469707')">
+                <div class="face face1">
+                    <div class="content">
+                        <span class="stars"></span>
+                        <h2 class="cSharp">Valencia</h2>
+                        <p class="cSharp">Comerse una paella mientras tu fisio favorito trata tus problemas físicos, otro rollo.</p>
+                    </div>
+                </div>
+                <div class="face face2">
+                    <h2>Valencia</h2>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- FIN DIV DE LAS CIUDADES -->
+
+    <!-- CONTAINER 4 FISIOS -->
+    <div class="cont">
+        <h3 class="page-title">Especialistas en Pediatría</h3>
+        <div class="row el-element-overlay">
+
+            <div *ngFor="let usuario of listaPediatria;let i = index" class="col-lg-3 col-md-6">
+                <div class="card">
+                    <div class="el-card-item">
+                        <div class="fotos4 el-overlay-1">
+                            <img class="micursor" (click)="fisio(usuario.uid)" [src]="crearImagenUrl(listaPediatria[i].imagen)" alt="user" />
+                        </div>
+                        <div class="el-card-content">
+                            <h4 class="m-b-0">{{listaPediatria[i].nombre_apellidos}}</h4>
+                            <span class="text-muted">{{listaPediatria[i].especialidad}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- FIN DEL CONTAINER 4 FISIOS -->
+
+
+
+    </div>
+
+    <!-- CONTAINER 4 FISIOS -->
+    <div class="cont">
+        <h3 class="page-title">Especialistas en Neurología</h3>
+        <div class="row el-element-overlay">
+
+            <div *ngFor="let usuario of listaNeurologia;let i = index" class="col-lg-3 col-md-6">
+                <div class="card">
+                    <div class="el-card-item">
+                        <div class="fotos4 el-overlay-1">
+                            <img class="micursor" (click)="fisio(usuario.uid)" [src]="crearImagenUrl(listaNeurologia[i].imagen)" alt="user" />
+                        </div>
+                        <div class="el-card-content">
+                            <h4 class="m-b-0">{{listaNeurologia[i].nombre_apellidos}}</h4>
+                            <span class="text-muted">{{listaNeurologia[i].especialidad}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- FIN DEL CONTAINER 4 FISIOS -->
+
+
+    <!-- ATRAER FISIOTERAPETURAS -->
+    <div class="cont">
+        <h3 class="page-title">¿Eres fisioterapeuta?</h3>
+
+        <div class="row el-element-overlay">
+            <div class="col-md-7">
+                <div class="card-body">
+                    <h4 class="card-title">¡Registrate en nuestra web!</h4>
+                    <p class="card-text">Si quieres distinguirte del resto de fisioterapeutas, contrata nuestro servicios. Le ofreceras a tus clientes un montón de ventajas y facilidades para que aprovechen mejor cada minuto que dedican a su salud. </p>
+                    <!-- <a href="#" class="btn btn-primary botonfinal">Registrarse</a> -->
+                    <a class="cta text-white" data-toggle="modal" data-target="#modalRegistro">¿Eres fisio? Registrate aquí</a>
+                </div>
+            </div>
+
+            <div class="col-md-5">
+                <div class="card">
+                    <div class="el-card-item">
+                        <div class="el-overlay-1 fotoabajo">
+                            <img src="../../assets/images/fisio.jpg" alt="user" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- FOOTER GRANDE -->
+<div class="footer2">
+    <div class="container-footer-all">
+        <div class="container-body">
+            <div class="colum1">
+                <h1>Mas informacion sobre el grupo</h1>
+                <p>Somos el equipo WebDullah, compuesto por cuatro estudiantes de Ingeniería Multimedia de la Universidad de Alicante realizando el ABP (Aprendizaje Basado en Proyectos) que corresponde al cuarto curso de la titulación. Para más información
+                    sobre nosotros, nuestro equipo y nuestro proyecto, no dejen de visitar nuestra <a href="https://mykine.ovh/webdullah/">web corporativa</a> , creada especificamente para esto. Esto es MyKine, esperamos que guste tanto como a nosotros.
+                </p>
+            </div>
+
+            <div class="colum2">
+
+                <h1>Redes Sociales</h1>
+
+                <div class="rowf">
+                    <img src="../../assets/images/facebook.png">
+                    <label>Siguenos en TikTok</label>
+                </div>
+                <div class="rowf">
+                    <img src="../../assets/images/twitter.png">
+                    <label>Siguenos en Twitter</label>
+                </div>
+                <div class="rowf">
+                    <img src="../../assets/images/instagram.png">
+                    <label>Siguenos en Instagram</label>
+                </div>
+            </div>
+            <div class="colum3">
+                <h1>Informacion Contactos</h1>
+
+                <div class="row2">
+                    <img src="../../assets/images/house.png">
+                    <label>Universidad de Alicante,
+                    Alicante
+                    mykineua@gmail.com</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

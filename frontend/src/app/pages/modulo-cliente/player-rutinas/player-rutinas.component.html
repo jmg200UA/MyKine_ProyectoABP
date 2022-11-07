@@ -1,0 +1,148 @@
+<div class="container-fluid" id="todo">
+
+    <!-- HEADER -->
+    <div class="row primerafila">
+
+        <!-- Primera columna, logo -->
+        <div class="col justify-content-start logo">
+            <div>
+                <span class="db"><img src="../../assets/images/LogoMyKine.png" alt="logo" /></span>
+            </div>
+        </div>
+
+        <!-- Titulo player con nombre rutina -->
+        <div class="col d-flex justify-content-center titulo">
+            <div class="titrut">
+                <div class="row">
+                    <h1 class="titrutina"><strong>Rutina: {{nombrerut}}</strong></h1>
+                </div>
+                <div class="form-actions row justify-content-center">
+                    <i class="micursor descri fas fa-info" id="verrutina" href="URL" data-toggle="modal" data-target="#rutina"></i>
+                    <!-- play y pausa descripciones -->
+                    <i class="micursor fas fa-volume-up" *ngIf="!habla2" (click)="speak(descrut,2)" id="habla"></i>
+                    <i class="micursor fas fa-volume-off" *ngIf="habla2" (click)="stop(2)" id="habla"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tercera columna-->
+        <div class="col d-flex justify-content-end">
+            <nav class="navbar navbar-expand-sm">
+                <!-- Cositis -->
+                <button id="volv" class="btn btn-info m-r-10" (click)="volver()">Volver</button>
+                <button *ngIf="posactual==numejercicios" class="btn btn-danger m-r-10" (click)="finalizarrutina()">Finalizar rutina</button>
+            </nav>
+        </div>
+
+    </div>
+    <!-- TERMINA EL HEADER -->
+
+    <!-- Cargamos modelo -->
+    <app-modelo class="modelo" [modeloSeleccionado]="modelo" [posicionActual]="posactual"></app-modelo>
+
+    <!-- Slider -->
+    <div class="slide">
+        <div class="slide-inner">
+            <!--Primer paso-->
+            <!--ngIf si slide-0 checked="checked"-->
+            <!--id recursivo segun iterador-->
+            <ng-container *ngFor="let nombre of ejerciciodescripcion; let i=index">
+                <input *ngIf="!check(i)" class="slide-open" type="radio" id="{{'slide-'+i}}" name="slide" aria-hidden="true" hidden="">
+                <input *ngIf="check(i)" class="slide-open" type="radio" id="{{'slide-'+i}}" name="slide" aria-hidden="true" hidden="" checked="checked">
+                <div class="slide-item">
+                    <h1 class="titulocuadro titprueba">{{ejercicionombre[i]}}</h1>
+                    <!-- Iconos -->
+                    <div class="form-actions infoejercicios">
+                        <i class="micursor descri fas fa-info" data-toggle="modal" [attr.data-target]="'#'+i"></i>
+                        <!-- play y pausa descripciones -->
+                        <i class="micursor fas fa-volume-up" *ngIf="!habla" (click)="speak(ejerciciodescripcion[i],1)" id="habla2"></i>
+                        <i class="micursor fas fa-volume-off" *ngIf="habla" (click)="stop(1)" id="habla2"></i>
+                    </div>
+                    <div id="divimagenpunto"><img id="imagenpunto" [src]="crearImagenUrl()"></div>
+                    <div id="infobajo" class="infobajo">
+                        <p>Repeticiones: {{ejerciciorepeticiones[posactual]}}</p>
+                    </div>
+                </div>
+            </ng-container>
+
+            <!-- Segundo paso -->
+            <!-- ngIf -->
+            <ng-container *ngFor="let nombre of ejercicionombre; let i=index">
+                <label for={{prev(i)}} class="{{'slide-control prev control-'+i}}" (click)="aux(); cambioPlayPause(1);">‹</label>
+                <label for={{next(i)}} class="{{'slide-control next control-'+i}}" (click)="aux1(); cambioPlayPause(1);">›</label>
+            </ng-container>
+            <!-- Tercer paso -->
+            <ol class="slide-indicador">
+                <ng-container *ngFor=" let nombre of ejercicionombre; let i=index ">
+                    <li>
+                        <label for="{{ 'slide-'+i+1}} " id="{{ 'slide-'+i+1}} " class="slide-circulo ">•</label>
+                        <!--for slide-i-->
+                    </li>
+                </ng-container>
+                <strong></strong>
+                <!-- <p><strong>{{posactual+1}}</strong> de <strong>{{ejerciciodescripcion.length}}</strong></p> si queremos poner num ejs -->
+            </ol>
+        </div>
+
+    </div>
+    <!-- FIN Slider -->
+
+</div>
+
+<!-- Modal descripcion ejercicios rutina -->
+<ng-container *ngFor="let nombre of ejercicionombre; let i=index ">
+    <div class="modal fade " [attr.id]="i ">
+        <div class="modal-dialog modal-dialog-centered ">
+            <div class="modal-content ">
+                <!-- Modal Header -->
+                <div class="modal-header ">
+                    <div class="modal-title ">
+                        <!-- <img class="img-fluid " src="../../assets/images/logocolor.png "> -->
+                        <h4 class="modal-title w-100 font-weight-bold ">¿Cómo realizar?</h4>
+                    </div>
+                </div>
+                <!-- Modal body -->
+                <div class="modal-body-sin-scroll">
+                    <h6>{{ejerciciodescripcion[i]}}</h6>
+                </div>
+                <div class="p-t-10 ">
+                    <button class="btn btn--pill btn--signin" data-dismiss="modal" type="close" data-target="#">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>
+<!-- Modal descripción rutina -->
+<div class="modal fade " id="rutina">
+    <div class="modal-dialog modal-dialog-centered ">
+        <div class="modal-content ">
+            <!-- Modal Header -->
+            <div class="modal-header ">
+                <div class="modal-title ">
+                    <!-- <img class="img-fluid " src="../../assets/images/logocolor.png "> -->
+                    <h4 class="modal-title w-100 font-weight-bold ">¿Cómo realizar?</h4>
+                </div>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body ">
+                <h6>{{descrut}}</h6>
+            </div>
+            <div class="p-t-10 ">
+                <button class="btn btn--pill btn--signin" data-dismiss="modal" type="close" data-target="#">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="pausa">
+    <div class="slide-inner-pausa">
+        <div class="dura">
+            <h5>Duración: {{minutes}}:{{seconds}}</h5>
+        </div>
+
+        <div class="botonesPlayer">
+            <i *ngIf="!play " (click)="cambioPlayPause(1) " class="micursor fas fa-pause pause"></i>
+            <i *ngIf="play " (click)="cambioPlayPause(0) " class="micursor fas fa-play play"></i>
+        </div>
+    </div>
+</div>

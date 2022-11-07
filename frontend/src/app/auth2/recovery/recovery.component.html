@@ -1,0 +1,56 @@
+<!-- TITULO SECCION -->
+<div class="row primerafila">
+    <!-- Primera columna-->
+    <div class="col justify-content-start logo">
+        <div>
+            <span class="db"><img src="../../assets/images/LogoMyKine.png" alt="logo" /></span>
+        </div>
+    </div>
+    <!-- Tercera columna-->
+    <div class="col d-flex justify-content-end">
+        <nav class="navbar navbar-expand-sm">
+            <div class="container-fluid">
+                <!-- Cositis -->
+                <button id="volv" class="btn btn-info m-r-10" routerLink="/landing">Volver</button>
+            </div>
+        </nav>
+    </div>
+</div>
+
+<div id="div1" class="d-flex justify-content-center">
+    <div id="div2" class="card-body">
+        <form id="div3" class="form-horizontal m-t-20 estiloform" [formGroup]="datosForm" (ngSubmit)="enviar()">
+            <br>
+            <h1 class="cur">Introduce tu nueva contraseña</h1>
+            <br>
+            <div class="row m-t-10">
+                <div class="col-lg-3 col-md-12 text-lg-right">
+                    <span class="cur"><strong>Contraseña</strong></span>
+                </div>
+                <div class="col-lg-8 col-md-12">
+                    <input type="password" class="form-control " formControlName="password" [ngClass]="{'is-invalid' : campoNoValido('password')}" id="password">
+                    <div class="invalid-feedback">
+                        El campo es obligatorio
+                    </div>
+                </div>
+            </div>
+            <div class="row m-t-10">
+                <div class="col-lg-3 col-md-12 text-lg-right">
+                    <span class="cur"><strong>Repetir Contraseña</strong></span>
+                </div>
+                <div class="col-lg-8 col-md-12">
+                    <input type="password" class="form-control " formControlName="password2" [ngClass]="{'is-invalid' : campoNoValido('password')}" id="password2">
+                    <div class="invalid-feedback">
+                        El campo es obligatorio
+                    </div>
+                </div>
+            </div>
+
+            <br>
+            <div id="envbutton" class="align-content-center ">
+                <button class="btn btn-primary m-r-20 " type="submit " id="enviar" [disabled]="datosForm.pristine">Enviar</button>
+            </div>
+            <br>
+        </form>
+    </div>
+</div>

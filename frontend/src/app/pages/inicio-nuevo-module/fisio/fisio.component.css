@@ -1,0 +1,16 @@
+.imperfil {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.imperfil>img {
+    width: 300px;
+    height: 200px;
+}
+
+.mapa {
+    width: 60%;
+    height: 350px;
+    margin: 0;
+}

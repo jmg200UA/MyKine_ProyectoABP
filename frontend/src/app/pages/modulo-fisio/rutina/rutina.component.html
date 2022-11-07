@@ -1,0 +1,122 @@
+<button id="volv" class="btn btn-info m-r-10" routerLink="/fisio/rutinas">Volver</button>
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <h4 id="titulo" class="card-title m-b-0">Ejercicios Disponibles</h4>
+            <div class="card-body">
+                <div id="inde">
+                    <nav id="menu">
+                        <ul>
+                            <li><a (click)="cambio('Cabeza')">Cabeza</a>
+                                <ul>
+                                    <li><a (click)="cambio('Cuello')">Cuello</a></li>
+                                    <li><a (click)="cambio('Cervicales')">Cervicales</a></li>
+                                </ul>
+                            </li>
+                            <li><a (click)="cambio('Torso')">Torso</a>
+                                <ul>
+                                    <li><a (click)="cambio('Hombro')">Hombro</a></li>
+                                    <li><a (click)="cambio('Pecho')">Pecho</a></li>
+                                    <li><a (click)="cambio('Abdomen')">Abdomen</a></li>
+                                    <li><a (click)="cambio('Lumbares')">Lumbares</a></li>
+                                    <li><a (click)="cambio('Dorsales')">Dorsales</a></li>
+                                    <li><a (click)="cambio('Pelvis')">Pelvis</a></li>
+                                    <li><a (click)="cambio('Gluteos')">Gluteos</a></li>
+                                </ul>
+                            </li>
+                            <li><a (click)="cambio('Brazo')">Brazo</a>
+                                <ul>
+                                    <li><a (click)="cambio('Triceps')">Triceps</a></li>
+                                    <li><a (click)="cambio('Biceps')">Biceps</a></li>
+                                    <li><a (click)="cambio('Codo')">Codo</a></li>
+                                    <li><a (click)="cambio('Antebrazo')">Antebrazo</a></li>
+                                    <li><a (click)="cambio('Muñeca')">Muñeca</a></li>
+                                    <li><a (click)="cambio('Mano')">Mano</a></li>
+                                </ul>
+                            </li>
+                            <li><a (click)="cambio('Pierna')">Pierna</a>
+                                <ul>
+                                    <li><a (click)="cambio('Isquiotibiales')">Isquiotibiales</a></li>
+                                    <li><a (click)="cambio('Cuadriceps')">Cuadriceps</a></li>
+                                    <li><a (click)="cambio('Rodilla')">Rodilla</a></li>
+                                    <li><a (click)="cambio('Gemelos')">Gemelos</a></li>
+                                    <li><a (click)="cambio('Soleo')">Soleo</a></li>
+                                    <li><a (click)="cambio('Tobillo')">Tobillo</a></li>
+                                    <li><a (click)="cambio('Pie')">Pie</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <br>
+                <div class="row">
+                    <div *ngFor="let ejercicio of listaEjerciciosExacto" class="col-md-4">
+                        <div *ngIf="ejercicio.tipo==categoria || ejercicio.subtipo==categoria" class="row el-element-overlay">
+                            <div id="entrarut" class="card">
+                                <div class="el-card-item">
+                                    <div class="el-card-avatar el-overlay-1"> <img class="micursor" (click)="rutimg(ejercicio)" [src]="crearImagenUrl(ejercicio.subtipo)" alt="user" id="fotoej" />
+                                    </div>
+                                    <div class="el-card-content">
+                                        <h4 id="nomeje" class="m-b-0">{{ejercicio.nombre}}</h4>
+                                        <button id="botcardañadir" (click)="anadirEjercicio(ejercicio)">Añadir</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <form class="col-md-6 " [formGroup]="datosForm" (ngSubmit)="enviar()">
+        <div class="card ">
+            <h4 id="titulo" class="card-title m-b-0">Rutinas</h4>
+            <div class="card-body ">
+                <section>
+                    <input placeholder="Nombre" formControlName="nombre" [ngClass]="{'is-invalid' : campoNoValido('nombre')}" id="nombre" type="text" class="form-control ">
+                    <br>
+                    <textarea placeholder="Descripción" formControlName="descripcion" [ngClass]="{'is-invalid' : campoNoValido('descripcion')}" id="descripcion" class="form-control"></textarea>
+                </section>
+                <hr id="espacio">
+                <section>
+                    <div *ngIf="ejerpillado.length == 0">
+                        <h3>No hay ningún ejercicio incluido en la rutina</h3>
+                    </div>
+
+                    <div id="contenedor" *ngFor="let ejer of ejerpillado; let i=index">
+                        <div id="entrarut2" class="card" style="width: 13rem; margin-left:1.3rem;">
+                            <img [src]="crearImagenUrl(ejer.subtipo)" alt="user" />
+                            <div class="el-card-content">
+                                <h5 class="m-b-0">{{ejer.nombre}}</h5>
+                                <button id="botcardeliminar" (click)="quitarEjercicio(ejer)">Eliminar</button>
+                                <br>
+                            </div>
+                        </div>
+
+                        <div id="rep">
+                            <div id="repeticiones">
+                                <i class="fas fa-redo m-b-5 font-16"></i>
+                                <input class="repe" type="number" value={{repeticionesarray[i]}} id="{{'repeticionesinput'+i}}" name="repeticion" min="1" max="10">
+                            </div>
+                            <div id="cambio">
+                                <a (click)="arriba(ejer,i)" id="arriba" class="fas fa-angle-up m-b-5 font-32" role="button"></a>
+                                <a (click)="abajo(ejer,i)" id="abajo" class="fas fa-angle-down m-b-5 font-16" role="button"></a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div *ngIf="ejerpillado.length != 0">
+                        <div *ngIf="valor=='nuevo'"><br>
+                            <button type="submit " id="enviar" class="btn btn-primary btn-lg active" aria-pressed="true">Crear Rutina</button>
+                        </div>
+                        <div *ngIf="valor=='viejo'"><br>
+                            <button type="submit " id="enviar" class="btn btn-primary btn-lg active" aria-pressed="true">Actualizar Rutina</button>
+                        </div>
+
+                    </div>
+                </section>
+            </div>
+        </div>
+    </form>
+</div>

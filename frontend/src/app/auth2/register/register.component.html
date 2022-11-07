@@ -1,0 +1,103 @@
+<div class="modal fade" id="modalRegistro">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <div class="modal-title">
+                    <!-- <img class="img-fluid" src="../../assets/images/logocolor.png"> -->
+                    <h4 class="modal-title w-100 font-weight-bold">REGISTRO</h4>
+                </div>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body">
+                <!-- <p class="title">Use your existing account to sign in</p> -->
+                <form [formGroup]="datosForm" (ngSubmit)="enviar()">
+
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-dark text-white" id="basic-addon1"><i class="fa fa-envelope"></i></span>
+                        </div>
+                        <input class="input--style-3 form-control form-control-lg" type="text" name="email" formControlName="email" placeholder="Email" aria-label="Username" aria-describedby="basic-addon1" required="">
+                    </div>
+
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-dark text-white" id="basic-addon2"><i class="fa fa-user"></i></span>
+                        </div>
+                        <input class="input--style-3 form-control form-control-lg" type="text" name="nombre_apellidos" formControlName="nombre_apellidos" placeholder="Nombre y Apellidos" aria-label="Username" aria-describedby="basic-addon1" required="">
+                    </div>
+
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-dark text-white" id="basic-addon3"><i class="fa fa-key"></i></span>
+                        </div>
+                        <input class="input--style-3 form-control form-control-lg" type="password" name="password" formControlName="password" placeholder="Contraseña" aria-label="Password" aria-describedby="basic-addon1" required="">
+                    </div>
+
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-dark text-white" id="basic-addon4"><i class="fa fa-unlock-alt"></i></span>
+                        </div>
+                        <input class="input--style-3 form-control form-control-lg" type="password" name="passwordrepeat" formControlName="passwordrepeat" placeholder="Repetir contraseña" aria-label="Password" aria-describedby="basic-addon1" required="">
+                    </div>
+
+                    <!-- Localizacion -->
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-dark text-white" id="basic-addon5"><i class="fa fa-location-arrow"></i></span>
+                        </div>
+                        <input #txtQuery (keyup)="onQueryChanged(txtQuery.value)" autocomplete="off" class="input--style-3 form-control form-control-lg " type="text" name="localizacion" formControlName="localizacion" placeholder="Ej:  Calle colón 12, Alicante" aria-label="localizacion"
+                            aria-describedby="basic-addon1" required="" value={{nombrePlace}}>
+
+                        <!-- RESULTADOS -->
+                        <div *ngIf="isLoadingPlaces" class="alert alert-primary mt-2 text-center">
+                            <h6>Cargando</h6>
+                            <span>Espere por favor...</span>
+                        </div>
+                        <ul class="list-group mt-2 porencima" *ngIf="places.length > 0">
+                            <li *ngFor="let place of places" class="list-group-item list-group-item-action pointer" [class.active]="place.id === selectedId" (click)="esteLugar( place )">
+                                <h6>{{ place.text_es }}</h6>
+                                <p>{{ place.place_name }}</p>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-dark text-white" id="basic-addon5"><i class="fa fa-user-md"></i></span>
+                        </div>
+                        <!-- <input class="input--style-3 form-control form-control-lg" type="text" name="localizacion" formControlName="localizacion" placeholder="Localización" aria-label="localizacion" aria-describedby="basic-addon1" required=""> -->
+                        <select name="especialidad" id="especialidad" class="form-control" formControlName="especialidad" required>
+                            <option value="general" selected>General</option>
+                            <option value="pediatria" >Pediatría</option>
+                            <option value="deportiva">Deportiva</option>
+                            <option value="geriatria">Geriatría</option>
+                            <option value="neurologia" >Neurología</option>
+                        </select>
+                    </div>
+
+                    <!-- ADVERTENCIAS DE LOGIN INCORRECTO -->
+                    <div class="row" *ngIf="campoNoValido( 'email') || campoNoValido( 'password') || campoNoValido( 'especialidad')">
+                        <div class="col">
+                            <p class="text-danger" *ngIf="campoNoValido('email')">El usuario obligatorio y debe ser un email</p>
+                            <p class="text-danger" *ngIf="campoNoValido('password')">El campo contraseña es obligatorio</p>
+                            <p class="text-danger" *ngIf="campoNoValido('especialidad')">El campo especialidad es obligatorio</p>
+                        </div>
+                    </div>
+
+
+                    <div class="p-t-10">
+                        <button class="btn btn--pill btn--signin" type="submit" data-target="#">REGISTRO</button>
+                    </div>
+                    <!-- <p class="title">O registrate con:</p>
+                    <div class="row">
+                        <div class="col">
+                            <div class="p-t-10"> <button class="btn btn--pill btn--green" type="submit">SIGN IN WITH GOOGLE <img src="https://img.icons8.com/color/48/000000/google-logo.png" /> </button> </div>
+                        </div>
+                    </div> -->
+                    <p class="extra new">¿Ya tienes una cuenta? <a class="micursor" data-dismiss="modal" data-toggle="modal" data-target="#modalLogin"><u>Login</u></a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

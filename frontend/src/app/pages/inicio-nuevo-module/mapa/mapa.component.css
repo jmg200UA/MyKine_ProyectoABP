@@ -1,0 +1,19 @@
+.mapa-container {
+    width: 100%;
+    height: 92vh;
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.612);
+    border-radius: 5px;
+    bottom: 45px;
+    right: 50px;
+    padding: 10px;
+    position: fixed;
+    z-index: 999;
+    max-width: 280px;
+}
+
+input {
+    width: fit-content;
+}

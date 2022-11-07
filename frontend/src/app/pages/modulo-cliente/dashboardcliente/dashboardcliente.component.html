@@ -1,0 +1,80 @@
+<!-- PRIMERA FILA CON SELECTOR DE FISIO -->
+<script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+<df-messenger id="chatbot" intent="WELCOME" chat-title="FisioBot" chat-icon="./assets/images/FotoChatbotREAL.PNG" agent-id="09033c24-8b8a-45e9-b674-ca35beb99b3b" language-code="es"></df-messenger>
+<div class="row primerafila">
+
+    <!-- Primera columna, logo -->
+    <div class="col justify-content-start logo">
+        <div>
+            <span class="db micursor" routerLink="/landing"><img src="../../assets/images/LogoMyKine.png" alt="logo" /></span>
+        </div>
+    </div>
+
+    <!-- Segunda columna, selector de fisio -->
+    <div class="row justify-content-sm-center selector">
+        <div class="col">
+            <div style="font-weight: bold;" class="textofisio">
+                Selecciona tu fisio
+            </div>
+            <div class="selector-en-centro">
+                <div class="select">
+                    <select (change)="recargar($event.target.value,0)" [(ngModel)]="selectedValue">
+                <option *ngFor="let nombre of nombresFisio; let index = index"  [ngValue]="nombre" [selected]="index == nombresFisio.length-1" >{{nombre}} </option>
+              </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tercera columna, minimenu -->
+    <div class="col d-flex justify-content-end">
+        <nav class="navbar navbar-expand-sm">
+            <div class="container-fluid">
+                <!-- Links -->
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img [src]="imagenUrl" alt="user" class="rounded-circle" width="31" id="fotoperfilnavbar"></a>
+                        <div class="dropdown-menu dropdown-menu-right user-dd animated">
+                            <a class="dropdown-item" routerLink="/cliente/perfil"><i class="fa fa-address-card m-r-5 m-l-5"></i> Mi Perfil</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item micursor" (click)="logout()"><i class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+</div>
+
+<!-- SEGUNDA FILA CON MINI NAVBAR, RUTINAS E INFORMES -->
+<div class="row mininavbar">
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg">
+            <ul class="navbar-nav menus">
+                <li class="nav-item micursor">
+                    <a [ngStyle]="isOn==0 && {'font-weight': '900', 'text-decoration': 'underline'}" class="nav-link navbar-opcion" (click)="isOn= 0">Rutinas</a>
+                </li>
+                <li class="nav-item micursor">
+                    <a [ngStyle]="isOn==1 && {'font-weight': '900', 'text-decoration': 'underline'}" class="nav-link navbar-opcion" (click)="isOn= 1">Informes</a>
+                </li>
+                <li class="nav-item micursor">
+                    <a [ngStyle]="isOn==2 && {'font-weight': '900', 'text-decoration': 'underline'}" class="nav-link navbar-opcion" (click)="isOn= 2">Historial</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<!-- TERCERA FILA CON EL CONTENIDO DE (O RUTINAS O INFORMES) -->
+
+<app-informes-cliente *ngIf="isOn==1" [fisioAhora]="NOMBRE" [fisioUid]="fisioUid">
+
+</app-informes-cliente>
+<app-rutinas-cliente *ngIf="isOn==0" [fisioAhora]="NOMBRE" [fisioUid]="fisioUid">
+
+</app-rutinas-cliente>
+<app-historialcliente *ngIf="isOn==2" [fisioAhora]="NOMBRE" [fisioUid]="fisioUid">
+
+</app-historialcliente>

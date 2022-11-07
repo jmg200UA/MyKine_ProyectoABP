@@ -1,0 +1,120 @@
+.logo {
+    padding-left: 4em;
+    padding-top: 1%;
+}
+
+.textofisio {
+    text-align: center;
+    margin-bottom: .5em;
+    font-size: 1.2em;
+    font-weight: 450;
+}
+
+ul li:hover a {
+    font-weight: 900;
+}
+
+.menus li {
+    font-weight: 600;
+}
+
+@media (min-width: 650px) {
+    .mininavbar {
+        padding-left: 3em;
+    }
+}
+
+.selector {
+    /* position: absolute; */
+    padding-top: 1.6%;
+}
+
+.selector-en-centro {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: auto;
+    max-width: none;
+}
+
+@media (max-width: 770px) {
+    .selector {
+        padding-top: 25%;
+        -webkit-box-pack: center !important;
+        -ms-flex-pack: center !important;
+        justify-content: center !important;
+    }
+    .aux {
+        -webkit-box-pack: center !important;
+        -ms-flex-pack: center !important;
+        justify-content: center !important;
+    }
+}
+
+.contenido {
+    padding: 1em;
+}
+
+
+/* OPCIONES SELECT */
+
+select {
+    /* Reset Select */
+    appearance: none;
+    outline: 0;
+    border: 0;
+    box-shadow: none;
+    /* Personalize */
+    flex: 1;
+    padding: 0 1em;
+    /* text-align: center; */
+    font-size: 1.5em;
+    color: #fff;
+    background-color: #2c3e50;
+    background-image: none;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+
+/* Remove IE arrow */
+
+select::-ms-expand {
+    display: none;
+}
+
+
+/* Custom Select wrapper */
+
+.select {
+    position: relative;
+    display: flex;
+    width: 23em;
+    height: 3.2em;
+    border-radius: .25em;
+    overflow: hidden;
+}
+
+
+/* Arrow */
+
+.select::after {
+    content: '\25BC';
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1em;
+    background-color: #34495e;
+    transition: .25s all ease;
+    pointer-events: none;
+}
+
+
+/* Transition */
+
+.select:hover::after {
+    color: #fff;
+}
+
+
+/* Menu hamburguesa */

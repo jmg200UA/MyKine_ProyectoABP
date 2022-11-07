@@ -1,0 +1,40 @@
+/* PERSONALIZAR TABLA */
+
+thead th {
+    background-color: #036d5b;
+    color: aliceblue;
+}
+
+button {
+    background-color: #036d5b;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.20);
+    border-radius: 5px;
+}
+
+.perso-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    border-radius: 10px;
+    /* font-size: 0.9em;
+    font-family: sans-serif; */
+    /* min-width: 400px; */
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.20);
+}
+
+
+/* BUSCADOR */
+
+.buscador {
+    height: 45px;
+    border-radius: .5em;
+}
+
+.buscador>div>span {
+    border-radius: 0 .5em .5em 0;
+    background-color: #036d5b;
+    color: white;
+}
+
+.buscador>input {
+    font-size: 18px;
+}

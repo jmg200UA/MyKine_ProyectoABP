@@ -1,0 +1,20 @@
+thead th {
+    background-color: #99430a;
+    color: aliceblue;
+}
+
+.nuevo {
+    background-color: #99430a;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.20);
+    border-radius: 5px;
+}
+
+.perso-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    border-radius: 10px;
+    /* font-size: 0.9em;
+font-family: sans-serif; */
+    /* min-width: 400px; */
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.20);
+}

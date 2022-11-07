@@ -1,0 +1,58 @@
+<div class="animate__animated animate__fadeInRight animate__faster">
+    <div class="d-flex justify-content-center">
+        <div class="card col-md-10">
+            <div class="card-body">
+                <div>
+                    <button class="btn btn-info m-r-10" routerLink="/fisio/informes">Volver</button>
+                    <div class="float-right">
+                        <button class="btn btn-primary nuevo" [disabled]="(!datosForm.pristine || (esnuevo()))" (click)="nuevo()">Nuevo<i class="fa fa-plus m-l-10"></i></button>
+                    </div>
+                </div>
+                <form class="form-horizontal m-t-20" [formGroup]="datosForm" (ngSubmit)="enviar()">
+                    <div *ngIf="valor=='nuevo'" class="row m-t-10">
+                        <div class="col-lg-3 col-md-12 text-lg-right">
+                            <span class="">Cliente</span>
+                        </div>
+                        <div class="col-lg-8 col-md-12">
+                            <select class="select2 form-control custom-select" formControlName="cliente_asociado" [ngClass]="{'is-invalid' : campoNoValido('cliente_asociado')}" id="cliente_asociado" style="width: 100%; height:36px;">
+                              <option *ngFor="let clientes of listaClientes" [ngValue]="clientes.cliente.uid">{{clientes.cliente.nombre_apellidos}}</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                El campo es obligatorio
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row m-t-10">
+                        <div class="col-lg-3 col-md-12 text-lg-right">
+                            <span class="">Título</span>
+                        </div>
+                        <div class="col-lg-8 col-md-12">
+                            <input type="text" class="form-control" formControlName="titulo" [ngClass]="{'is-invalid' : campoNoValido('titulo')}" id="titulo">
+                            <div class="invalid-feedback">
+                                El campo es obligatorio
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row m-t-10">
+                        <div class="col-lg-3 col-md-12 text-lg-right">
+                            <span class="">Contenido</span>
+                        </div>
+                        <div class="col-lg-8 col-md-12">
+                            <!-- <label for="exampleFormControlTextarea1">Example textarea</label> -->
+                            <textarea class="form-control" formControlName="contenido" [ngClass]="{'is-invalid' : campoNoValido('contenido')}" id="contenido" rows="4"></textarea>
+                            <div class="invalid-feedback">
+                                El campo es obligatorio
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center m-t-10 ">
+                        <div class="align-content-center ">
+                            <button class="btn btn-primary m-r-20 nuevo" type="submit " id="enviar" [disabled]="datosForm.pristine">Enviar</button>
+                            <button class="btn btn-danger " type="button" (click)="cancelar()" id="cancelar" [disabled]="datosForm.pristine">Cancelar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

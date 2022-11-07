@@ -1,0 +1,17 @@
+.logo {
+    padding-left: 4em;
+    padding-top: 1%;
+}
+
+.imperfil {
+    width: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.datoscliente {
+    border-radius: 10px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.20);
+    background-color: #e3e5e9a2;
+}

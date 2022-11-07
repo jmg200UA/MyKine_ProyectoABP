@@ -1,0 +1,40 @@
+#div2 {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+#div3 {
+    /* top: 50%; */
+    margin-top: 2em;
+    margin-bottom: 5em;
+    width: 50%;
+    border-radius: 20px;
+    /* border: 5px solid #fff; */
+}
+
+#envbutton {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+#enviar {
+    border-radius: 10px;
+    border: 2px solid rgba(55, 72, 170, 0.801);
+}
+
+
+/* h1 {
+  font-family: cursive;
+} */
+
+.colorOscuro {
+    background-color: #f3f3f3;
+}
+
+.estiloform {
+    border-radius: 10px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.20);
+    background-color: #e3e5e9a2;
+}

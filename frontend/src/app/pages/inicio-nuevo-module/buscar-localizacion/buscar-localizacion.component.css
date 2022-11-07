@@ -1,0 +1,19 @@
+.pointer {
+    cursor: pointer;
+}
+
+p {
+    font-size: 12px;
+}
+
+.porencima {
+    position: absolute;
+    z-index: 200;
+}
+
+.search {
+    width: 100%;
+    border: 2px solid rgb(83, 83, 83);
+    border-radius: .5em;
+    padding: 10px 10px 10px 35px;
+}

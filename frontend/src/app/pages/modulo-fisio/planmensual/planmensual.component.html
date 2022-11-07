@@ -1,0 +1,562 @@
+<div id="generic_price_table">
+    <section>
+
+        <div class="container">
+
+            <!--BLOCK ROW START-->
+            <div class="row">
+                <div class="col-md-4">
+
+                    <!--PRICE CONTENT START-->
+                    <div *ngIf="plan=='Gratis'" class="generic_content active clearfix">
+
+                        <!--HEAD PRICE DETAIL START-->
+                        <div class="generic_head_price clearfix">
+
+                            <!--HEAD CONTENT START-->
+                            <div class="generic_head_content clearfix">
+
+                                <!--HEAD START-->
+                                <div class="head_bg"></div>
+                                <div class="head">
+                                    <span>Básico</span>
+                                </div>
+                                <!--//HEAD END-->
+
+                            </div>
+                            <!--//HEAD CONTENT END-->
+
+                            <!--PRICE START-->
+                            <div class="generic_price_tag clearfix">
+                                <h1>Gratis</h1>
+                            </div>
+                            <!--//PRICE END-->
+
+                        </div>
+                        <!--//HEAD PRICE DETAIL END-->
+
+                        <!--FEATURE LIST START-->
+                        <div class="generic_feature_list">
+                            <ul>
+                                <li><span>1</span> Cliente máximo</li>
+                                <li><span>Ilimitados</span> Informes</li>
+                                <li><span>24/7</span> Soporte</li>
+                                <li><span>Visibilidad</span> nula</li>
+                            </ul>
+                        </div>
+                        <!--//FEATURE LIST END-->
+
+                        <!--BUTTON START-->
+                        <div class="generic_price_btn clearfix" *ngIf="activo!='Gratis'">
+                            <a class="micursor" data-toggle="modal" data-target="#modalGratis">Elegir</a>
+                        </div>
+
+                        <div class="generic_price_btn clearfix" *ngIf="activo=='Gratis'">
+                            <a class="not-active">Actual</a>
+                        </div>
+                        <!--//BUTTON END-->
+
+                    </div>
+                    <div *ngIf="plan!='Gratis'" class="generic_content clearfix">
+
+                        <!--HEAD PRICE DETAIL START-->
+                        <div class="generic_head_price clearfix">
+
+                            <!--HEAD CONTENT START-->
+                            <div class="generic_head_content clearfix">
+
+                                <!--HEAD START-->
+                                <div class="head_bg"></div>
+                                <div class="head">
+                                    <span>Básico</span>
+                                </div>
+                                <!--//HEAD END-->
+
+                            </div>
+                            <!--//HEAD CONTENT END-->
+
+                            <!--PRICE START-->
+                            <div class="generic_price_tag clearfix">
+                                <h1>Gratis</h1>
+                            </div>
+                            <!--//PRICE END-->
+
+                        </div>
+                        <!--//HEAD PRICE DETAIL END-->
+
+                        <!--FEATURE LIST START-->
+                        <div class="generic_feature_list">
+                            <ul>
+                                <li><span>1</span> Cliente máximo</li>
+                                <li><span>Ilimitados</span> Informes</li>
+                                <li><span>24/7</span> Soporte</li>
+                                <li><span>Visibilidad</span> nula</li>
+                            </ul>
+                        </div>
+                        <!--//FEATURE LIST END-->
+
+                        <!--BUTTON START-->
+                        <div class="generic_price_btn clearfix" *ngIf="activo!='Gratis'">
+                            <a class="micursor" data-toggle="modal" data-target="#modalGratis">Elegir</a>
+                        </div>
+
+                        <div class="generic_price_btn clearfix" *ngIf="activo=='Gratis'">
+                            <a class="not-active">Actual</a>
+                        </div>
+                        <!--//BUTTON END-->
+
+                    </div>
+                    <!--//PRICE CONTENT END-->
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <!--PRICE CONTENT START-->
+
+                    <div *ngIf="plan=='Estandar'" class="generic_content active clearfix">
+                        <!--HEAD PRICE DETAIL START-->
+                        <div class="generic_head_price clearfix">
+
+                            <!--HEAD CONTENT START-->
+                            <div class="generic_head_content clearfix">
+
+                                <!--HEAD START-->
+                                <div class="head_bg"></div>
+                                <div class="head">
+                                    <span>Estándar</span>
+                                </div>
+                                <!--//HEAD END-->
+
+                            </div>
+                            <!--//HEAD CONTENT END-->
+
+                            <!--PRICE START-->
+                            <div class="generic_price_tag clearfix">
+                                <span class="price">
+                            <span class="sign">€</span>
+                                <span class="currency">24</span>
+                                <span class="cent">.99</span>
+                                <span class="month">/MES</span>
+                                </span>
+                            </div>
+                            <!--//PRICE END-->
+
+                        </div>
+                        <!--//HEAD PRICE DETAIL END-->
+
+                        <!--FEATURE LIST START-->
+                        <div class="generic_feature_list">
+                            <ul>
+                                <li><span>50</span> Clientes máximos</li>
+                                <li><span>Ilimitados</span> Informes</li>
+                                <li><span>24/7</span> Soporte</li>
+                                <li><span>Visibilidad</span> limitada</li>
+                            </ul>
+                        </div>
+                        <!--//FEATURE LIST END-->
+
+                        <!--BUTTON START-->
+                        <div class="generic_price_btn clearfix" *ngIf="activo!='Estandar'">
+                            <a class="micursor" data-toggle="modal" data-target="#modalEstandar">Elegir</a>
+                        </div>
+
+                        <div class="generic_price_btn clearfix" *ngIf="activo=='Estandar'">
+                            <a class="not-active">Actual</a>
+                        </div>
+                        <!--//BUTTON END-->
+                    </div>
+                    <div *ngIf="plan!='Estandar'" class="generic_content clearfix">
+                        <!--HEAD PRICE DETAIL START-->
+                        <div class="generic_head_price clearfix">
+
+                            <!--HEAD CONTENT START-->
+                            <div class="generic_head_content clearfix">
+
+                                <!--HEAD START-->
+                                <div class="head_bg"></div>
+                                <div class="head">
+                                    <span>Estándar</span>
+                                </div>
+                                <!--//HEAD END-->
+
+                            </div>
+                            <!--//HEAD CONTENT END-->
+
+                            <!--PRICE START-->
+                            <div class="generic_price_tag clearfix">
+                                <span class="price">
+                                <span class="sign">€</span>
+                                <span class="currency">24</span>
+                                <span class="cent">.99</span>
+                                <span class="month">/MES</span>
+                                </span>
+                            </div>
+                            <!--//PRICE END-->
+
+                        </div>
+                        <!--//HEAD PRICE DETAIL END-->
+
+                        <!--FEATURE LIST START-->
+                        <div class="generic_feature_list">
+                            <ul>
+                                <li><span>50</span> Clientes máximos</li>
+                                <li><span>Ilimitados</span> Informes</li>
+                                <li><span>24/7</span> Soporte</li>
+                                <li><span>Visibilidad</span> limitada</li>
+                            </ul>
+                        </div>
+                        <!--//FEATURE LIST END-->
+
+                        <!--BUTTON START-->
+                        <div class="generic_price_btn clearfix" *ngIf="activo!='Estandar'">
+                            <a class="micursor" data-toggle="modal" data-target="#modalEstandar">Elegir</a>
+                        </div>
+
+                        <div class="generic_price_btn clearfix" *ngIf="activo=='Estandar'">
+                            <a class="not-active">Actual</a>
+                        </div>
+                        <!--//BUTTON END-->
+                    </div>
+                    <!--//PRICE CONTENT END-->
+
+                </div>
+                <div class="col-md-4">
+
+                    <!--PRICE CONTENT START-->
+                    <div *ngIf="plan=='Premium'" class="generic_content active clearfix">
+
+                        <!--HEAD PRICE DETAIL START-->
+                        <div class="generic_head_price clearfix">
+
+                            <!--HEAD CONTENT START-->
+                            <div class="generic_head_content clearfix">
+
+                                <!--HEAD START-->
+                                <div class="head_bg"></div>
+                                <div class="head">
+                                    <span>Premium</span>
+                                </div>
+                                <!--//HEAD END-->
+
+                            </div>
+                            <!--//HEAD CONTENT END-->
+
+                            <!--PRICE START-->
+                            <div class="generic_price_tag clearfix">
+                                <span class="price">
+                                    <span class="sign">€</span>
+                                <span class="currency">39</span>
+                                <span class="cent">.99</span>
+                                <span class="month">/MES</span>
+                                </span>
+                            </div>
+                            <!--//PRICE END-->
+
+                        </div>
+                        <!--//HEAD PRICE DETAIL END-->
+
+                        <!--FEATURE LIST START-->
+                        <div class="generic_feature_list">
+                            <ul>
+                                <li><span>No hay</span> Clientes máximos</li>
+                                <li><span>Ilimitados</span> Informes</li>
+                                <li><span>24/7</span> Soporte</li>
+                                <li><span>Visibilidad</span> completa en web</li>
+                            </ul>
+                        </div>
+                        <!--//FEATURE LIST END-->
+
+                        <!--BUTTON START-->
+                        <div class="generic_price_btn clearfix" *ngIf="activo!='Premium'">
+                            <a class="micursor" data-toggle="modal" data-target="#modalRegistro">Elegir</a>
+                        </div>
+
+                        <div class="generic_price_btn clearfix" *ngIf="activo=='Premium'">
+                            <a class="not-active">Actual</a>
+                        </div>
+                        <!--//BUTTON END-->
+
+                    </div>
+                    <div *ngIf="plan!='Premium'" class="generic_content clearfix">
+
+                        <!--HEAD PRICE DETAIL START-->
+                        <div class="generic_head_price clearfix">
+
+                            <!--HEAD CONTENT START-->
+                            <div class="generic_head_content clearfix">
+
+                                <!--HEAD START-->
+                                <div class="head_bg"></div>
+                                <div class="head">
+                                    <span>Premium</span>
+                                </div>
+                                <!--//HEAD END-->
+
+                            </div>
+                            <!--//HEAD CONTENT END-->
+
+                            <!--PRICE START-->
+                            <div class="generic_price_tag clearfix">
+                                <span class="price">
+                                  <span class="sign">€</span>
+                                <span class="currency">39</span>
+                                <span class="cent">.99</span>
+                                <span class="month">/MES</span>
+                                </span>
+                            </div>
+                            <!--//PRICE END-->
+
+                        </div>
+                        <!--//HEAD PRICE DETAIL END-->
+
+                        <!--FEATURE LIST START-->
+                        <div class="generic_feature_list">
+                            <ul>
+                                <li><span>No hay</span> Clientes máximos</li>
+                                <li><span>Ilimitados</span> Informes</li>
+                                <li><span>24/7</span> Soporte</li>
+                                <li><span>Visibilidad</span> completa en web</li>
+                            </ul>
+                        </div>
+                        <!--//FEATURE LIST END-->
+
+                        <!--BUTTON START-->
+                        <div class="generic_price_btn clearfix" *ngIf="activo!='Premium'">
+                            <a class="micursor" data-toggle="modal" data-target="#modalRegistro">Elegir</a>
+                        </div>
+
+                        <div class="generic_price_btn clearfix" *ngIf="activo=='Premium'">
+                            <a class="not-active">Actual</a>
+                        </div>
+                        <!--//BUTTON END-->
+
+                    </div>
+                    <!--//PRICE CONTENT END-->
+
+                </div>
+            </div>
+            <!--//BLOCK ROW END-->
+
+        </div>
+    </section>
+
+</div>
+
+
+<!-- MODAL Gratis-->
+
+
+<div class="modal fade" id="modalGratis">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <div class="modal-title">
+                    <!-- <img class="img-fluid" src="../../assets/images/logocolor.png"> -->
+                    <h4 class="modal-title w-100 font-weight-bold">Cambio de plan</h4>
+                </div>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body">
+
+                <h6>Tu plan mensual es <strong>{{activo}}</strong>, ¿seguro que quieres cambiar a <strong>Gratis</strong>?</h6>
+
+                <div *ngIf="activo=='Estandar'">
+                    <p>Se te desactivarán todos tus clientes menos el último que registraste y que no estuviera desctivado por ti previamente.
+                    </p>
+                </div>
+
+                <div *ngIf="activo=='Premium'">
+                    <p>Se te desactivarán todos tus clientes menos el último que registraste y que no estuviera desctivado por ti previamente.
+                    </p>
+                    <p>Además, perderás toda visibilidad en nuestra web principal.</p>
+                </div>
+
+                <div class="p-t-10">
+                    <!-- <button class="btn btn--pill btn--signin" type="submit" data-target="#">SI</button> -->
+                    <button class="btn btn--pill btn--signin" data-dismiss="modal" data-toggle="modal" (click)="cambiarPlan('Gratis')">SI</button>
+                    <button class="btn btn--pill btn--signin" data-dismiss="modal" type="close" data-target="#">NO</button>
+                </div>
+                <!-- </form> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- MODAL ESTANDAR-->
+
+
+<div class="modal fade" id="modalEstandar">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <div class="modal-title">
+                    <!-- <img class="img-fluid" src="../../assets/images/logocolor.png"> -->
+                    <h4 class="modal-title w-100 font-weight-bold">Cambio de plan</h4>
+                </div>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body">
+
+                <h6>Tu plan mensual es <strong>{{activo}}</strong>, ¿seguro que quieres cambiar a <strong>Estandar</strong>?</h6>
+
+                <div *ngIf="activo=='Gratis'">
+                    <p>¡SON TODO VENTAJAS!</p>
+                </div>
+
+                <div *ngIf="activo=='Premium'">
+                    <p>Se te desactivarán todos tus clientes ilimitados menos los 50 últimos que registraste y que no estuvieran desctivados por ti previamente.
+                    </p>
+                    <p>Además, perderás visibilidad en nuestra web principal.</p>
+                </div>
+
+                <div class="p-t-10">
+                    <!-- <button class="btn btn--pill btn--signin" type="submit" data-target="#">SI</button> -->
+                    <button class="btn btn--pill btn--signin" data-dismiss="modal" data-toggle="modal" data-target="#modalPagoEstandar">SI</button>
+                    <button class="btn btn--pill btn--signin" data-dismiss="modal" type="close" data-target="#">NO</button>
+                </div>
+                <!-- </form> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- MODAL PREMIUM-->
+
+
+<div class="modal fade" id="modalRegistro">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <div class="modal-title">
+                    <!-- <img class="img-fluid" src="../../assets/images/logocolor.png"> -->
+                    <h4 class="modal-title w-100 font-weight-bold">Cambio de plan</h4>
+                </div>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body">
+
+                <h6>Tu plan mensual es <strong>{{activo}}</strong>, ¿seguro que quieres cambiar a <strong>Premium</strong>?</h6>
+
+                <div *ngIf="activo=='Gratis' || activo=='Estandar'">
+                    <p>¡SON TODO VENTAJAS!</p>
+                </div>
+
+                <div class="p-t-10">
+                    <!-- <button class="btn btn--pill btn--signin" type="submit" data-target="#">SI</button> -->
+                    <button class="btn btn--pill btn--signin" data-dismiss="modal" data-toggle="modal" data-target="#modalPagoPremium">SI</button>
+                    <button class="btn btn--pill btn--signin" data-dismiss="modal" type="close" data-target="#">NO</button>
+                </div>
+                <!-- </form> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- MODAL PAGO Premium-->
+
+
+<div class="modal fade" id="modalPagoPremium">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <div class="modal-title">
+                    <!-- <img class="img-fluid" src="../../assets/images/logocolor.png"> -->
+                    <h4 class="modal-title w-100 font-weight-bold">Método de pago</h4>
+                </div>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body">
+                <!-- <p class="title">Use your existing account to sign in</p> -->
+                <form [formGroup]="datosForm" (ngSubmit)="enviar()">
+
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-dark text-white" id="basic-addon1"><i class="fa fa-credit-card" aria-hidden="true"></i></span>
+                        </div>
+                        <input class="input--style-3 form-control form-control-lg" type="text" name="tarjeta" placeholder="Tu numero de tarjeta crack" aria-label="Username" aria-describedby="basic-addon1" required="">
+                    </div>
+
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-dark text-white" id="basic-addon1"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                        </div>
+                        <input class="input--style-3 form-control form-control-lg" type="text" name="date" placeholder="dd/aa" aria-label="Username" aria-describedby="basic-addon1" required="">
+                    </div>
+
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-dark text-white" id="basic-addon1"><i class="fa fa-user-secret" aria-hidden="true"></i></span>
+                        </div>
+                        <input class="input--style-3 form-control form-control-lg" type="text" name="cvv" placeholder="CVV" aria-label="Username" aria-describedby="basic-addon1" required="">
+                    </div>
+
+                    <div class="p-t-10">
+                        <button class="btn btn--pill btn--signin" data-dismiss="modal" data-target="#" (click)="cambiarPlan('Premium')">PAGAR</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- MODAL PAGO Estandar-->
+
+
+<div class="modal fade" id="modalPagoEstandar">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <div class="modal-title">
+                    <!-- <img class="img-fluid" src="../../assets/images/logocolor.png"> -->
+                    <h4 class="modal-title w-100 font-weight-bold">Método de pago</h4>
+                </div>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body">
+                <!-- <p class="title">Use your existing account to sign in</p> -->
+                <form [formGroup]="datosForm" (ngSubmit)="enviar()">
+
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-dark text-white" id="basic-addon1"><i class="fa fa-credit-card" aria-hidden="true"></i></span>
+                        </div>
+                        <input class="input--style-3 form-control form-control-lg" type="text" name="tarjeta" formControlName="tarjeta" placeholder="Tu numero de tarjeta crack" aria-label="Username" aria-describedby="basic-addon1" required="">
+                    </div>
+
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-dark text-white" id="basic-addon1"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                        </div>
+                        <input class="input--style-3 form-control form-control-lg" type="text" name="date" formControlName="date" placeholder="dd/aa" aria-label="Username" aria-describedby="basic-addon1" required="">
+                    </div>
+
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-dark text-white" id="basic-addon1"><i class="fa fa-user-secret" aria-hidden="true"></i></span>
+                        </div>
+                        <input class="input--style-3 form-control form-control-lg" type="text" name="cvv" formControlName="cvv" placeholder="CVV" aria-label="Username" aria-describedby="basic-addon1" required="">
+                    </div>
+
+                    <div class="p-t-10">
+                        <button class="btn btn--pill btn--signin" data-dismiss="modal" data-target="#" (click)="cambiarPlan('Estandar')">PAGAR</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

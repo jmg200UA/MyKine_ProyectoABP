@@ -1,0 +1,30 @@
+<div class="animate__animated animate__fadeInRight animate__faster">
+    <div class="d-flex justify-content-center">
+        <div class="card col-md-10">
+            <div class="card-body">
+                <div>
+                    <button class="btn btn-info m-r-10" [disabled]="!datosForm.pristine" routerLink="/fisio/clientes">Volver</button>
+                </div>
+                <form class="form-horizontal m-t-20" [formGroup]="datosForm" (ngSubmit)="enviar()">
+                    <div class=" row m-t-10 ">
+                        <div class="col-lg-3 col-md-12 text-lg-right ">
+                            <span class=" ">Email</span>
+                        </div>
+                        <div class="col-lg-8 col-md-12 ">
+                            <input type="text " class="form-control " formControlName="email" [ngClass]="{ 'is-invalid' : campoNoValido( 'email')} " id="email ">
+                            <div class="invalid-feedback ">
+                                El campo es obligatorio
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center m-t-10 ">
+                        <div class="align-content-center ">
+                            <button class="btn btn-primary m-r-20 " type="submit " id="enviar" [disabled]="datosForm.pristine">Enviar</button>
+                            <button class="btn btn-danger " type="button" (click)="cancelar()" id="cancelar" [disabled]="datosForm.pristine">Cancelar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

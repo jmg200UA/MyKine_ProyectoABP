@@ -1,0 +1,200 @@
+.navbar-opcion {
+    background-color: transparent;
+    color: rgb(29, 29, 29);
+}
+
+@media (min-width: 650px) {
+    .segundafila {
+        padding-left: 3em;
+        padding-right: 3em;
+    }
+    .mininavbar {
+        padding-left: 3em;
+    }
+}
+
+.minicol {
+    padding: 1em;
+    margin: .3em;
+    margin-top: 1em;
+    background-color: #e3e5e9;
+    border-radius: 4px;
+}
+
+label {
+    display: block;
+    font: 1rem 'Fira Sans', sans-serif;
+    margin: .4rem 0;
+}
+
+.date {
+    border-radius: 5px;
+    margin: .4rem 0;
+}
+
+td {
+    /*para quitarle el borde de arriba */
+    border-top: 0px;
+    background-color: #e3e5e9;
+    z-index: 9999;
+}
+
+.contenido {
+    padding: 1em;
+}
+
+select {
+    /* Reset Select */
+    appearance: none;
+    outline: 0;
+    border: 0;
+    box-shadow: none;
+    /* Personalize */
+    flex: 1;
+    padding: 0 1em;
+    color: #fff;
+    background-color: #2c3e50;
+    background-image: none;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+
+/* Remove IE arrow */
+
+select::-ms-expand {
+    display: none;
+}
+
+
+/* Custom Select wrapper */
+
+.select {
+    position: relative;
+    display: flex;
+    width: 20em;
+    height: 3em;
+    border-radius: .25em;
+    overflow: hidden;
+}
+
+
+/* Arrow */
+
+.select::after {
+    content: '\25BC';
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1em;
+    background-color: #34495e;
+    transition: .25s all ease;
+    pointer-events: none;
+}
+
+
+/* Transition */
+
+.select:hover::after {
+    color: #fff;
+}
+
+
+/* PERSONALIZAR TABLA */
+
+thead th {
+    background-color: #4e6072;
+    color: aliceblue;
+}
+
+.perso-table {
+    border-collapse: collapse;
+    margin: .5em;
+    border-radius: 10px;
+}
+
+
+/* BOTONES */
+
+button {
+    border: 0;
+    outline: 0 none !important;
+    background: none;
+}
+
+.botones {
+    text-align: center;
+}
+
+
+/* PAGINACION */
+
+#paginas {
+    float: right !important;
+}
+
+.modal-backdrop {
+    z-index: -1;
+}
+
+.card {
+    /* background-color: #f0f0f0cc; */
+    background-color: #e3e8e99f;
+    border-radius: .5em;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.20);
+}
+
+.colorOscuro {
+  background-color: #f3f3f3;
+}
+
+.barBusqueda {
+    appearance: none;
+    width: 100%;
+    height: 2.5em;
+    border: 2px solid #333333;
+    border-radius: .5em;
+    /* background-color: #333333;
+  color: white; */
+    font-size: large;
+    padding-left: 1em;
+}
+
+
+/* .filtros {
+  padding: 16px;
+} */
+
+
+/* DESPLEGABLE ORDENAR*/
+
+
+/* .filtrohist {
+  margin-top: 1em;
+} */
+
+.box select {
+    border-radius: 10px;
+    background-color: #343a40;
+    color: white;
+    border: none;
+    outline: none;
+}
+
+.box::before {
+    text-align: center;
+    pointer-events: none;
+}
+
+.box:hover::before {
+    color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.botonfecha {
+    border-radius: 10px;
+    background-color: #343a40;
+    color: white;
+    border: none;
+    outline: none;
+}

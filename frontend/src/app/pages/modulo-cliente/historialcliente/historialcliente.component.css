@@ -1,0 +1,113 @@
+.navbar-opcion {
+    background-color: transparent;
+    color: rgb(29, 29, 29);
+}
+
+@media (min-width: 650px) {
+    .segundafila {
+        padding-left: 3em;
+        padding-right: 3em;
+    }
+    .mininavbar {
+        padding-left: 3em;
+    }
+}
+
+.minicol {
+    padding: 1em;
+    margin: .3em;
+    margin-top: 1em;
+    background-color: #e3e5e9;
+    border-radius: 4px;
+}
+
+.colorOscuro {
+    background-color: #f3f3f3;
+}
+
+label {
+    display: block;
+    font: 1rem 'Fira Sans', sans-serif;
+    margin: .4rem 0;
+}
+
+.date {
+    border-radius: 5px;
+    margin: .4rem 0;
+}
+
+
+/* PERSONALIZAR TABLA */
+
+
+/* thead th {
+    background-color: #08345c;
+    color: aliceblue;
+} */
+
+td {
+    /*para quitarle el borde de arriba */
+    border-top: 0px;
+}
+
+.perso-table {
+    border-collapse: collapse;
+    /* margin: 25px 0; */
+    border-radius: 10px;
+    /* font-size: 0.9em;
+  font-family: sans-serif; */
+    /* min-width: 400px; */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.20);
+    background-color: #e3e8e99f;
+}
+
+
+/* ESTILO COLUMNA IZDA Y CARDS*/
+
+.cartaizda {
+    border-radius: 10px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.20);
+    background-color: #e3e5e9a2;
+}
+
+.rowstyle .estilopag {
+    background-color: #e3e8e99f;
+}
+
+.cartaround {
+    border-radius: 10px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.20);
+}
+
+
+/* DESPLEGABLE ORDENAR*/
+
+.filtrohist {
+    margin-top: 1em;
+}
+
+.box select {
+    border-radius: 10px;
+    background-color: #343a40;
+    color: white;
+    border: none;
+    outline: none;
+}
+
+.box::before {
+    text-align: center;
+    pointer-events: none;
+}
+
+.box:hover::before {
+    color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.botonfecha {
+    border-radius: 10px;
+    background-color: #343a40;
+    color: white;
+    border: none;
+    outline: none;
+}

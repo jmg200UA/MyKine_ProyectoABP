@@ -1,0 +1,160 @@
+<div class="row gx-5 segundafila">
+
+    <!-- COLUMNA IZQUIERDA, BUSCADOR -->
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Filtros de rutinas</h5>
+                <!-- PRIMERA fila de la columna izquierda -->
+                <!-- <div class="row minicol colorOscuro">
+                    <div class="col m-t-10">
+                        <div class="row justify-content-between">
+                            <div class="col-md-auto">
+                                <div class="input-group">
+                                    <input #txtBuscar type="text" class="form-control " (keyup)="cargarEsteCliente(txtBuscar.value)" id="fname" placeholder="Buscar">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text micursor" (click)="txtBuscar.value ='';cargarEsteCliente(txtBuscar.value)"><i class="fa fa-times-circle"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div> -->
+                <div class="row minicol rowstyle colorOscuro text-center justify-content-center">
+                    <!-- Segunda col -->
+                    <div class="col-md-6 text-center">
+                        <h5 class="card-title">Rutinas</h5>
+                        <div class="bg-dark p-20 text-white text-center cartaround">
+                            <i class="fas fa-dumbbell m-b-5 font-16 "></i>
+                            <h5 class="m-b-0 m-t-5 ">{{RutinaMostrar.length}}</h5>
+                            <!-- <small class="font-light ">Rutinas recibidas</small> -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SEGUNDA fila de la columna izquierda -->
+                <div class="row minicol colorOscuro">
+
+                    <!-- Primera col -->
+
+                    <div class="col-12 filtros">
+                        <div class="col-md-12 text-center box filtrohist">
+                            <form class="form-horizontal m-t-20" [formGroup]="datosForm">
+                                <select class="text-center p-2 micursor" id="selectfiltro" formControlName="selectfiltro" (click)="cambiarFiltro(5)">
+                                  <option value="" selected disabled>Filtrar por</option>
+                                  <option value="0">Solo activas</option>
+                                  <option value="1">Todas</option>
+                                </select>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Segunda col -->
+                    <div class="col-md-12 text-center">
+                        <form class="form-horizontal m-t-20" [formGroup]="datosForm">
+                            <div class="col-md-12 text-center">
+                                <label for="start">Filtra por fechas:</label>
+                                <input class="date" type="date" id="start" name="trip-start" formControlName="fecha1" value="2022-03-30" min="2021-09-01" max="2023-12-31">
+                                <span><></span>
+                                <input class="date" type="date" id="start2" name="trip-start2" formControlName="fecha2" value="2022-03-30" min="2021-09-01" max="2023-12-31">
+                            </div>
+                            <div class="justify-content-center">
+                                <button class="box botonfecha" (click)="cambiarFiltro(4)">Filtrar</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+
+                <!-- Resumen -->
+                <!-- <div class="row minicol colorOscuro">
+                    <div class="col-md-6">
+                        <h5>Rutinas activas</h5>
+                        <div class="bg-dark p-20 text-white text-center modal-content">
+                            <i class="fas fa-table m-b-5 font-16 "></i>
+                            <h5 class="m-b-0 m-t-5 ">{{RutinaDefinitiva.length}}</h5>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h5>Rutinas realizadas</h5>
+                        <div class="bg-dark p-20 text-white text-center modal-content">
+                            <i class="fas fa-table m-b-5 font-16 "></i>
+                            <h5 class="m-b-0 m-t-5 ">{{rutinasFiltradas.length}}</h5>
+                        </div>
+                    </div>
+                </div> -->
+
+            </div>
+        </div>
+    </div>
+    <!-- FIN COLUMNA IZQUIERDA, BUSCADOR -->
+
+    <!-- COLUMNA DERECHA, MUESTRA DE RESULTADOS -->
+    <div class="col-md-8">
+        <div class="card">
+
+            <div class="card-body">
+                <h5 class="card-title">Rutinas</h5>
+                <!-- Mostramos un array general que vamos cambiando según el filtro -->
+                <div class="row el-element-overlay">
+                    <div *ngFor="let rutina of RutinaMostrar;let i=index" class="col-md-3">
+                        <div class="card colorOscuro">
+                            <div class="el-card-item animate__animated animate__fadeIn">
+                                <div class="el-overlay-1">
+                                </div>
+                                <div class="el-card-content1 aux">
+                                    <h4 class="m-b-0">{{rutina.nombre}}</h4>
+                                    <table class="table table-striped">
+                                        <tr id="primtr">Activa
+                                            <i class="fa fa-check text-success" *ngIf="RutinaAuxMostrar[i].activo"></i>
+                                            <i class="fa fa-times text-danger" *ngIf="!RutinaAuxMostrar[i].activo"></i>
+                                        </tr>
+                                        <tr id="sectr">Veces realizada: <strong>{{RutinaAuxMostrar[i].veces_realizada}}</strong>
+                                        </tr>
+                                        <tr class="micursor botones">
+                                            <a class="micursor btn btn-secondary fas fa-eye" (click)="ejs(rutina.uid)" href="URL" data-toggle="modal" [attr.data-target]="'#'+i"></a>
+                                            <button type="button"><i class="btn btn-secondary  far fa-play-circle" (click)="btnClick(rutina.uid);"></i></button>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div *ngIf=" RutinaDefinitiva.length==0 " class="row el-element-overlay ">
+                    <h2>Este fisio aun no te ha compartido ninguna rutina</h2>
+                </div> -->
+            </div>
+        </div>
+    </div>
+    <!-- FIN COLUMNA DERECHA, MUESTRA DE RESULTADOS -->
+</div>
+
+<!-- Modal -->
+<ng-container *ngFor="let rutina of RutinaMostrar; let i=index">
+    <div class="modal fade" [attr.id]="i" data-keyboard="false" data-backdrop="">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <div class="modal-title">
+                        <!-- <img class="img-fluid" src="../../assets/images/logocolor.png"> -->
+                        <h4 class="modal-title w-100 font-weight-bold">{{rutina.nombre}}</h4>
+                    </div>
+                </div>
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <h6>{{rutina.descripcion}}</h6>
+                    <h6><strong>Ejercicios a realizar</strong></h6>
+                    <ng-container *ngFor="let ejercicio of ejercicios">
+                        <h6>-{{ejercicio.nombre}}</h6>
+                    </ng-container>
+                </div>
+                <div class="p-t-10">
+                    <button class="btn btn--pill btn--signin cerrar" data-dismiss="modal" type="close" data-target="#">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>

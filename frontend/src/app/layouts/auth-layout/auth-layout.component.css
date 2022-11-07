@@ -1,0 +1,15 @@
+    /* .topbar .navbar-collapse[data-navbarbg=skin5],
+.topbar[data-navbarbg=skin5] {
+    background: beige !important
+}
+
+.scroll-sidebar,
+.left-sidebar[data-sidebarbg=skin5] ul {
+    background-color: beige !important;
+} */
+    
+    .hola {
+        /* background-color: lightblue; */
+        background-color: #0E4376;
+        /* position: absolute; */
+    }

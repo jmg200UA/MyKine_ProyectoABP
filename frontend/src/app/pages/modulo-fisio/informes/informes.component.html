@@ -1,0 +1,66 @@
+<div class="row animate__animated animate__fadeIn animate__faster">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="col">
+                    <div class="row justify-content-end">
+                        <div class="float-right">
+                            <button class="btn btn-primary nuevo" routerLink="/fisio/informes/informe/nuevo">Nuevo<i class="fa fa-plus m-l-10"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col m-t-10">
+                    <div class="row justify-content-between">
+                        <div class="col-sm-4">
+                            <div class="input-group buscador">
+                                <input #txtBuscar type="text" class="form-control buscador" (keyup)="cargarInformesConTexto(txtBuscar.value)" id="fname" placeholder="Buscar">
+                                <div class="input-group-append">
+                                    <span class="input-group-text micursor" (click)="txtBuscar.value ='';cargarInformesConTexto(txtBuscar.value)"><i class="fa fa-times-circle"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="float-right">
+                                <app-pagination (cambiarPagina)="cambiarPagina( $event )" [totalRegistros]="totalInformes" [registroActual]="posicionactual+1" [registrosPorPagina]="registrosporpagina"></app-pagination>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="alert alert-primary text-center" *ngIf="loading">
+                    <h4 class="alert-heading">Cargando!</h4>
+                    <i class="fa fa-spin fa-spinner fa-3x"></i>
+                    <p>Por favor, espere</p>
+                </div>
+                <div class="table-responsive perso-table">
+                    <table id="tabla_usuarios" class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Título</th>
+                                <th>Cliente</th>
+                                <!-- <th>Contenido</th> -->
+                                <th>Fecha</th>
+                                <th>Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let informe of listaInformes">
+                                <td [routerLink]="['/fisio/informes/informe', informe.uid]" class="micursor">{{informe.titulo}}</td>
+                                <td [routerLink]="['/fisio/informes/informe', informe.uid]" class="micursor">{{informe.cliente_asociado.nombre_apellidos}}</td>
+                                <!-- <td [routerLink]="['/fisio/informes/informe', informe.uid]" class="micursor">{{informe.contenido}}</td> -->
+                                <td [routerLink]="['/fisio/informes/informe', informe.uid]" class="micursor">{{informe.fecha | date : 'dd/MM/yyyy'}}</td>
+                                <td class="micursor botones">
+                                    <button type="button" (click)="generarPDF(informe,true)"><i class="btn btn-secondary fas fa-eye"></i></button>
+                                    <button type="button" (click)="generarPDF(informe,false)"><i class="btn btn-dark fas fa-arrow-alt-circle-down"></i></button>
+                                    <button type="button" (click)="eliminarInforme(informe.uid,informe.titulo)"><i class="btn btn-danger far fa-trash-alt"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class=" mt-2 mr-2 float-right ">
+                    <app-pagination (cambiarPagina)="cambiarPagina( $event )" [texto]="true" [totalRegistros]="totalInformes" [registroActual]="posicionactual+1" [registrosPorPagina]="registrosporpagina"></app-pagination>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

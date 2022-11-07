@@ -1,0 +1,117 @@
+<!-- ESTADISTICAS PRIMERA FILA NUMEROS -->
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card-body ">
+                        <div class="bg-dark p-10 text-white text-center">
+                            <i class="fa fa-user m-b-5 font-16"></i>
+                            <h5 class="m-b-0 m-t-5">{{clientes}} / {{clientesMax}}</h5>
+                            <small class="font-light">Clientes totales</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card-body ">
+                        <div class="bg-dark p-10 text-white text-center">
+                            <i class="fas fa-scroll m-b-5 font-16"></i>
+                            <h5 class="m-b-0 m-t-5">{{total_informes}}</h5>
+                            <small class="font-light">Informes enviados</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card-body ">
+                        <div class="bg-dark p-10 text-white text-center">
+                            <i class="fas fa-table m-b-5 font-16"></i>
+                            <h5 class="m-b-0 m-t-5">{{totalRutinas}}</h5>
+                            <small class="font-light">Rutinas creadas</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><br>
+<!-- FIN ESTADISTICAS PRIMERA FILA NUMEROS -->
+
+<!-- PARTE DE PROGRESSBAR Y ULTIMO INFORME -->
+<div class="row ">
+    <div class="col-md-6 ">
+
+        <!-- PROGRESSBAR -->
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title m-b-0">Medidores</h4>
+                <div *ngIf="porcentajeClientes!=''" class="m-t-20">
+                    <div class="d-flex no-block align-items-center">
+                        <span>Clientes máximos: {{porcentajeClientes}}%</span>
+                        <div class="ml-auto">
+                            <span>{{clientesMax}}</span>
+                        </div>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped" role="progressbar" style="width: {{porcentajeClientes}}%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex no-block align-items-center m-t-25">
+                        <span>Valoración media de los clientes: {{valoracionMedia}}/10</span>
+                        <div class="ml-auto">
+                            <span>10</span>
+                        </div>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: {{valoracionMediaPorcentaje}}%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ULTIMO INFORME -->
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Último informe redactado
+                    <button type="button" (click)="generarPDF(true)"><i class="btn btn-secondary fas fa-eye"></i></button>
+                    <button type="button" (click)="generarPDF(false)"><i class="btn btn-dark fas fa-arrow-alt-circle-down"></i></button>
+                </h5>
+            </div>
+
+            <table class="table">
+
+                <tbody>
+                    <tr>
+                        <td>Cliente</td>
+                        <td>{{clienteinf}}</td>
+                    </tr>
+                    <tr>
+                        <td>Contenido</td>
+                        <td>{{ contenido | slice:0:240 }}{{contenidoLength > 200 ? '...' : ''}}</td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+
+    <!-- GRAFICA CLIENTES -->
+    <div class="col-md-6 ">
+        <div *ngIf="pacientes.length != 0" class="card ">
+            <div class="card-body ">
+                <h5 class="card-title ">Nuevos pacientes</h5>
+
+                <app-grafica-barra [barChartData]="pacientes" [barChartLabels]="pacientesLabels">
+                </app-grafica-barra>
+
+            </div>
+        </div>
+    </div>
+    <!-- FIN  CLIENTES -->
+
+
+</div>

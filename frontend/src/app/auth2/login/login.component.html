@@ -1,0 +1,96 @@
+<div class="modal fade" id="modalLogin" #closeAddExpenseModal>&times;>
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <div *ngIf="boolres==false" class="modal-title">
+                    <h4 class="modal-title w-100 font-weight-bold">LOGIN</h4>
+                </div>
+                <div *ngIf="boolres==true" class="modal-title">
+                    <h4 class="modal-title w-100 font-weight-bold">REESTABLECER CONTRASEÑA</h4>
+                </div>
+            </div>
+            <!-- Modal body -->
+            <div *ngIf="boolres==false" class="modal-body">
+                <form id="loginform" (ngSubmit)="login()" [formGroup]="loginForm">
+
+                    <div class="input-group">
+                        <!-- Icono en la izquierda, opcional -->
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-dark text-white" id="basic-addon1"><i class="fa fa-user"></i></span>
+                        </div>
+                        <input class="input--style-3 form-control form-control-lg" type="text" name="email" formControlName="email" placeholder="Email" aria-label="Username" aria-describedby="basic-addon1" required="">
+                    </div>
+
+                    <div class="input-group">
+                        <!-- Icono en la izquierda, opcional -->
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-dark text-white" id="basic-addon2"><i class="fa fa-lock"></i></span>
+                        </div>
+                        <input class="input--style-3 form-control form-control-lg" type="password" name="password" formControlName="password" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" required="">
+                    </div>
+
+                    <!-- ADVERTENCIAS DE LOGIN INCORRECTO -->
+                    <div class="row" *ngIf="!campoValido( 'email') || !campoValido( 'password')">
+                        <div class="col">
+                            <p class="text-danger" *ngIf="!campoValido( 'email')">El usuario obligatorio y debe ser un email</p>
+                            <p class="text-danger" *ngIf="!campoValido( 'password')">El campo contraseña es obligatorio</p>
+                        </div>
+                    </div>
+
+                    <div class="extra">
+                        <a (click)="cambiarBool(true)" class="micursor"><u>¿Has olvidado tu contraseña?</u></a>
+                    </div>
+                    <div class="p-t-10">
+                        <button class="btn btn--pill btn--signin" type="submit">LOGIN</button>
+                    </div>
+                    <!-- RECUERDAME -->
+                    <div class="custom-control custom-checkbox mr-sm-2">
+                        <input type="checkbox" class="custom-control-input" formControlName="remember" id="customControlAutosizing1">
+                        <label class="custom-control-label" for="customControlAutosizing1">Recuerdame</label>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="p-t-10" id="my-signin2">
+                                <button class="btn btn--pill btn--green" type="submit">LOGIN CON GOOGLE <img src="https://img.icons8.com/color/48/000000/google-logo.png" /> </button>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="extra new">¿Eres fisioterapeuta y no tienes cuenta? <a class="micursor" data-dismiss="modal" data-toggle="modal" data-target="#modalRegistro"><u>Registro</u></a></p>
+                </form>
+            </div>
+            <!-- Modal para cuando se desea reestablecer la contraseña -->
+            <div *ngIf="boolres==true" class="modal-body">
+                <form id="loginform" (ngSubmit)="respas()" [formGroup]="respasForm">
+
+                    <div class="input-group text-center">
+                        <h6 class="text-center">Introduce tu correo asociado a MyKine</h6>
+                        <p class="text-center">Se te enviará un enlace a ese correo</p>
+                    </div>
+
+                    <div class="input-group">
+                        <!-- Icono en la izquierda, opcional -->
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-dark text-white" id="basic-addon1"><i class="fa fa-user"></i></span>
+                        </div>
+                        <input class="input--style-3 form-control form-control-lg" type="text" name="email" formControlName="email" placeholder="Email" aria-label="Username" aria-describedby="basic-addon1" required="">
+                    </div>
+
+                    <!-- ADVERTENCIAS DE LOGIN INCORRECTO -->
+                    <div class="row" *ngIf="!campoValido( 'email') || !campoValido( 'password')">
+                        <div class="col">
+                            <p class="text-danger" *ngIf="!campoValido( 'email')">El usuario obligatorio y debe ser un email</p>
+                        </div>
+                    </div>
+
+                    <div class="p-t-10">
+                        <button class="btn btn--pill btn--signin" type="submit">ENVIAR CORREO</button>
+                    </div>
+                    <div class="extra">
+                        <a (click)="cambiarBool(false)" class="micursor"><u>Volver</u></a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,70 @@
+<div class="container-md">
+    <div class="d-flex justify-content-center">
+        <div class="card col-md-10">
+            <div class="card-body">
+                <h5 class="card-title">Datos del perfil</h5>
+                <!-- <div class="text-success text-right animate__animated animate__faster" [ngClass]="{'animate__fadeIn': showOKD && datosForm.pristine, 'animate__fadeOut' : !(showOKD && datosForm.pristine)}">Datos actualizados -->
+
+            </div>
+
+            <div class="text-center imperfil">
+                <img [src]="imagenUrl " class="img-thumbnail rounded-circle ">
+            </div>
+            <br>
+
+            <div>
+                <!-- <form class="form-horizontal m-t-20 " [formGroup]="datosForm " (ngSubmit)="enviar() "> -->
+
+                <div class=" row m-t-10 ">
+                    <div class="col-lg-3 text-lg-right ">
+                        <span class=" ">Nombre: </span>
+                    </div>
+                    <div class="col-lg-8 col-md-12 ">
+                        <span class=" ">{{nombre | titlecase}}</span>
+                    </div>
+                </div>
+
+                <div class=" row m-t-10 ">
+                    <div class="col-lg-3 text-lg-right ">
+                        <span class=" ">Email: </span>
+                    </div>
+                    <div class="col-lg-8 col-md-12 ">
+                        <span class=" ">{{email}}</span>
+                    </div>
+                </div>
+
+                <div class=" row m-t-10 ">
+                    <div class="col-lg-3 text-lg-right ">
+                        <span class=" ">Especialidad: </span>
+                    </div>
+                    <div class="col-lg-8 col-md-12 ">
+                        <span class=" ">{{especialidad | titlecase}}</span>
+                    </div>
+                </div>
+
+                <div class=" row m-t-10 ">
+                    <div class="col-lg-3 text-lg-right ">
+                        <span class=" ">Valoración media: </span>
+                    </div>
+                    <div class="col-lg-8 col-md-12 ">
+                        <span class=" ">{{valoracion | number}}</span>
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="d-flex justify-content-center">
+                    <div #mapa class="mapa"></div>
+                    <!-- <div class="align-content-center ">
+                        <button class="btn btn-primary m-r-20 ">Ver en el mapa</button>
+                    </div> -->
+                </div>
+
+
+                <br>
+
+            </div>
+        </div>
+
+    </div>
+</div>

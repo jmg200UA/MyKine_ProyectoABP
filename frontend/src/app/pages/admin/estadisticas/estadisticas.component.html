@@ -1,0 +1,114 @@
+<!-- ESTADISTICAS PRIMERA FILA NUMEROS -->
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="row">
+
+                <div class="col-md-3">
+                    <div class="card-body">
+                        <div class="bg-dark p-10 text-white text-center">
+                            <i class="fas fa-user-md m-b-5 font-16"></i>
+                            <h5 class="m-b-0 m-t-5">{{fisios}}</h5>
+                            <small class="font-light">Fisios totales</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card-body">
+                        <div class="bg-dark p-10 text-white text-center">
+                            <i class=" fa fa-user m-b-5 font-16"></i>
+                            <h5 class="m-b-0 m-t-5">{{clientes}}</h5>
+                            <small class="font-light">Clientes totales</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card-body">
+                        <div class="bg-dark p-10 text-white text-center">
+                            <i class="fas fa-user-friends m-b-5 font-16"></i>
+                            <h5 class="m-b-0 m-t-5">{{total_usuarios_clientes}}</h5>
+                            <small class="font-light">Nº Usuarios totales</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card-body">
+                        <div class="bg-dark p-10 text-white text-center">
+                            <i class="	fas fa-file-invoice-dollar m-b-5 font-16"></i>
+                            <h5 class="m-b-0 m-t-5">{{facturacion_mensual | number}} €</h5>
+                            <small class="font-light">Facturación mensual</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><br>
+<!-- FIN ESTADISTICAS PRIMERA FILA NUMEROS -->
+
+<!-- Apartado Usuarios -->
+<h4>Usuarios</h4><br>
+
+
+<div class="row d-flex justify-content-center">
+    <div *ngIf="usuariosClientes.length != 0" class="col-md-10">
+        <div class="card card-body">
+            <h5>Altas de fisioterapeutas y pacientes mensuales</h5>
+            <app-grafica-barra [barChartData]="usuariosClientes" [barChartLabels]="usuariosClientesLabels">
+            </app-grafica-barra>
+        </div>
+    </div>
+</div>
+
+
+<!-- Apartado de fisios -->
+<h4>Fisios</h4><br>
+
+<div class="row">
+
+    <div *ngIf="planesMensuales.length != 0" class="col-md-6">
+        <div class="card card-body">
+            <h5>Planes Mensuales</h5>
+            <app-donut-bar [donutData]="planesMensuales" [donutLabels]="['Gratis','Estandar','Premium'] " [colors]="colorsPlanes"></app-donut-bar>
+        </div>
+    </div>
+
+    <div *ngIf="especialidades.length != 0" class="col-md-6">
+        <div class="card card-body">
+            <h5>Especialidades</h5>
+            <app-donut-bar [donutData]="especialidades" [donutLabels]="['Pediatría','Neurología','Geriatría','Deportiva']" [colors]="colorsEspecialidad"></app-donut-bar>
+        </div>
+    </div>
+</div>
+
+
+<!-- Apartado facturación -->
+<h4>Tráfico y Facturación</h4><br>
+
+<div class="row">
+
+    <div *ngIf="graficaUsuarios.length != 0" class="col-md-6">
+        <div class="card card-body">
+            <h5>Tráfico en la web</h5>
+            <app-grafica-barra [barChartData]="graficaUsuarios" [barChartLabels]="traficoWeb">
+            </app-grafica-barra>
+        </div>
+    </div>
+    <div *ngIf="porcentajeTrafico.length != 0" class="col-md-6">
+        <div class="card card-body">
+            <h5>Porcentaje tráfico orgánico</h5>
+            <app-donut-bar [donutData]="porcentajeTrafico" [donutLabels]="['Orgánico','Total']" [colors]="colorsTrafico"></app-donut-bar>
+        </div>
+    </div>
+
+    <div *ngIf="usuariosClientes.length != 0" class="col-md-12 d-flex justify-content-center">
+        <div class="card card-body">
+            <h5>Facturación por mes</h5>
+            <app-grafica-barra [barChartData]="facturacionPorMes" [barChartLabels]="factLabel" [line]="true">
+            </app-grafica-barra>
+        </div>
+    </div>
+
+</div>
