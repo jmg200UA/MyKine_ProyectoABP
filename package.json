@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "nodemailer": "^6.7.2",
+    "pdfmake-wrapper": "^2.1.2"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.21"
+  }
+}
