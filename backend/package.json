@@ -1,0 +1,35 @@
+{
+    "name": "backend",
+    "version": "1.0.0",
+    "main": "index.js",
+    "scripts": {
+        "start:dev": "nodemon index.js",
+        "start:debug": "set DEBUG=express:* & nodemon index.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "description": "",
+    "dependencies": {
+        "actions-on-google": "^3.0.0",
+        "axios": "^0.27.2",
+        "bcryptjs": "^2.4.3",
+        "cors": "^2.8.5",
+        "dialogflow-fulfillment": "^0.6.1",
+        "dotenv": "^8.2.0",
+        "express-fileupload": "^1.2.1",
+        "express-validator": "^6.6.1",
+        "google-auth-library": "^7.11.0",
+        "jsonwebtoken": "^8.5.1",
+        "mongoose": "^5.9.27",
+        "nodemon": "^2.0.15",
+        "uuid": "^8.3.2",
+        "uuidv4": "^6.2.12",
+        "validator": "^13.1.1"
+    },
+    "devDependencies": {
+        "body-parser": "^1.20.0",
+        "express": "^4.18.1",
+        "request": "^2.88.2"
+    }
+}
