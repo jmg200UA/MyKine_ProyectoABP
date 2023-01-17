@@ -23,9 +23,9 @@ experiencia de los usuarios en la aplicación.
 
 **Más información en los informes del proyecto.**
 
-**Aplicación Web:** https://mykine.ovh/inicio
+**Aplicación Web:** https://mykine.ovh/inicio (se dejó de financiar el dominio).
 
-**Web corporativa:** https://mykine.ovh/webdullah/
+**Web corporativa:** https://mykine.ovh/webdullah/ (se dejó de financiar el dominio).
 
 **Redes sociales** 
 
